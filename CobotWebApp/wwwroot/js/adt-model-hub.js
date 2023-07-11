@@ -47,7 +47,7 @@ const adtWrist2AdtRelationshipElement = document.getElementById("adt-wrist2-adt-
 const adtWrist3AdtRelationshipElement = document.getElementById("adt-wrist3-adt-relationship");
 const adtToolAdtRelationshipElement = document.getElementById("adt-tool-adt-relationship");
 
-var totalDuration = 0;
+var totalDurationAdt = 0;
 
 uploadDtdlModelHubConnection.start().then(function () {
     document.getElementById("adtSyncButton").disabled = false;
@@ -70,7 +70,7 @@ createAdtRelationshipHubConnection.start().then(function () {
 
 uploadDtdlModelHubConnection.on("ReceiveUploadCobotMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -80,7 +80,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadCobotMessage", function (message) 
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadControlBoxMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtControlBoxDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -90,7 +90,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadControlBoxMessage", function (mess
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadJointLoadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtJointLoadDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -100,7 +100,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadJointLoadMessage", function (messa
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadPayloadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtPayloadDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -110,7 +110,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadPayloadMessage", function (message
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadBaseMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtBaseDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -120,7 +120,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadBaseMessage", function (message) {
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadShoulderMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtShoulderDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -130,7 +130,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadShoulderMessage", function (messag
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadElbowMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtElbowDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -140,7 +140,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadElbowMessage", function (message) 
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadWrist1Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist1DtdlModelElement.innerHTML = uploadIcon;
     }
@@ -150,7 +150,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadWrist1Message", function (message)
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadWrist2Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist2DtdlModelElement.innerHTML = uploadIcon;
     }
@@ -160,7 +160,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadWrist2Message", function (message)
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadWrist3Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist3DtdlModelElement.innerHTML = uploadIcon;
     }
@@ -170,7 +170,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadWrist3Message", function (message)
 });
 uploadDtdlModelHubConnection.on("ReceiveUploadToolMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtToolDtdlModelElement.innerHTML = uploadIcon;
     }
@@ -181,7 +181,7 @@ uploadDtdlModelHubConnection.on("ReceiveUploadToolMessage", function (message) {
 
 createAdtTwinHubConnection.on("ReceiveCreateCobotMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -192,7 +192,7 @@ createAdtTwinHubConnection.on("ReceiveCreateCobotMessage", function (message) {
 
 createAdtTwinHubConnection.on("ReceiveCreateControlBoxMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtControlBoxAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -203,7 +203,7 @@ createAdtTwinHubConnection.on("ReceiveCreateControlBoxMessage", function (messag
 
 createAdtTwinHubConnection.on("ReceiveCreateJointLoadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtJointLoadAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -213,7 +213,7 @@ createAdtTwinHubConnection.on("ReceiveCreateJointLoadMessage", function (message
 });
 createAdtTwinHubConnection.on("ReceiveCreatePayloadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtPayloadAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -223,7 +223,7 @@ createAdtTwinHubConnection.on("ReceiveCreatePayloadMessage", function (message) 
 });
 createAdtTwinHubConnection.on("ReceiveCreateBaseMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtBaseAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -233,7 +233,7 @@ createAdtTwinHubConnection.on("ReceiveCreateBaseMessage", function (message) {
 });
 createAdtTwinHubConnection.on("ReceiveCreateShoulderMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtShoulderAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -243,7 +243,7 @@ createAdtTwinHubConnection.on("ReceiveCreateShoulderMessage", function (message)
 });
 createAdtTwinHubConnection.on("ReceiveCreateElbowMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtElbowAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -253,7 +253,7 @@ createAdtTwinHubConnection.on("ReceiveCreateElbowMessage", function (message) {
 });
 createAdtTwinHubConnection.on("ReceiveCreateWrist1Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist1AdtTwinElement.innerHTML = uploadIcon;
     }
@@ -263,7 +263,7 @@ createAdtTwinHubConnection.on("ReceiveCreateWrist1Message", function (message) {
 });
 createAdtTwinHubConnection.on("ReceiveCreateWrist2Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist2AdtTwinElement.innerHTML = uploadIcon;
     }
@@ -273,7 +273,7 @@ createAdtTwinHubConnection.on("ReceiveCreateWrist2Message", function (message) {
 });
 createAdtTwinHubConnection.on("ReceiveCreateWrist3Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtWrist3AdtTwinElement.innerHTML = uploadIcon;
     }
@@ -283,7 +283,7 @@ createAdtTwinHubConnection.on("ReceiveCreateWrist3Message", function (message) {
 });
 createAdtTwinHubConnection.on("ReceiveCreateToolMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtToolAdtTwinElement.innerHTML = uploadIcon;
     }
@@ -294,7 +294,7 @@ createAdtTwinHubConnection.on("ReceiveCreateToolMessage", function (message) {
 
 createAdtRelationshipHubConnection.on("ReceiveCreateCobotToControlBoxMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtControlBoxAdtRelationshipElement.innerHTML = uploadIcon;
@@ -306,7 +306,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateCobotToControlBoxMessage", f
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateCobotToJointLoadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtJointLoadAdtRelationshipElement.innerHTML = uploadIcon;
@@ -318,7 +318,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateCobotToJointLoadMessage", fu
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateCobotToPayloadMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtPayloadAdtRelationshipElement.innerHTML = uploadIcon;
@@ -330,7 +330,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateCobotToPayloadMessage", func
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToBaseMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtBaseAdtRelationshipElement.innerHTML = uploadIcon;
@@ -342,7 +342,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToBaseMessage", fun
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToShoulderMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtShoulderAdtRelationshipElement.innerHTML = uploadIcon;
@@ -354,7 +354,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToShoulderMessage",
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToElbowMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtElbowAdtRelationshipElement.innerHTML = uploadIcon;
@@ -366,7 +366,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToElbowMessage", fu
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist1Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtWrist1AdtRelationshipElement.innerHTML = uploadIcon;
@@ -378,7 +378,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist1Message", f
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist2Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtWrist2AdtRelationshipElement.innerHTML = uploadIcon;
@@ -390,7 +390,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist2Message", f
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist3Message", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtWrist3AdtRelationshipElement.innerHTML = uploadIcon;
@@ -402,7 +402,7 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToWrist3Message", f
 });
 createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToToolMessage", function (message) {
     const messageObject = JSON.parse(message);
-    getTotalDuration(messageObject.Duration);
+    getTotalDurationAdt(messageObject.Duration);
     if (messageObject.Status == 200) {
         adtCobotAdtRelationshipElement.innerHTML = uploadIcon;
         adtToolAdtRelationshipElement.innerHTML = uploadIcon;
@@ -413,7 +413,8 @@ createAdtRelationshipHubConnection.on("ReceiveCreateJointLoadToToolMessage", fun
     }
 });
 document.getElementById("adtSyncButton").addEventListener("click", function (event) {
-    totalDuration = 0;
+
+    totalDurationAdt = 0;
 
     adtJointLoadDtdlModelElement.innerHTML = syncIcon;
     adtCobotDtdlModelElement.innerHTML = syncIcon;
@@ -643,12 +644,12 @@ document.getElementById("adtSyncButton").addEventListener("click", function (eve
         .then(CreateJointLoadToWrist1Promise)
         .then(CreateJointLoadToWrist2Promise)
         .then(CreateJointLoadToWrist3Promise)
-        .then(CreateJointLoadToolPromise);
+        .then(CreateJointLoadToolPromise)
 });
 
 
-function getTotalDuration(duration) {
-    totalDuration = totalDuration + duration;
+function getTotalDurationAdt(duration) {
+    totalDurationAdt = totalDurationAdt + duration;
     var adtTitleElement = document.getElementById("adt-title");
-    adtTitleElement.innerHTML = totalDuration.toFixed(4) + "ms";
+    adtTitleElement.innerHTML = totalDurationAdt.toFixed(4) + "ms";
 }

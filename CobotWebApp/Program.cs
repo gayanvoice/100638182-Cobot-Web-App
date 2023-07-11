@@ -5,10 +5,6 @@ using CobotWebApp.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-
-
 var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -49,4 +45,5 @@ app.MapRazorPages();
 app.MapHub<AdtModelHub>("/adtModelHub");
 app.MapHub<AdtTwinHub>("/adtTwinHub");
 app.MapHub<AdtRelationshipHub>("/adtRelationshipHub");
+app.MapHub<IotTwinHub>("/iotTwinHub");
 app.Run();
