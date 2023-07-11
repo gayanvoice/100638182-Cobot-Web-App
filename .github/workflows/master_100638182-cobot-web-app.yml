@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: '100638182-cobot-web-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A70FFD071D2546F19FCE8B896BF5652D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_802E49A7F3B74295AC9518B3EA7E24F6 }}
           package: .
