@@ -5,8 +5,71 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
+<main class="form-signin w-100 m-auto">
+    <form id="account" method="post">
+        <svg width="100%" height="100%" viewBox="0 0 256 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="AddQual Logo">
+            <g clip-path="url(#clip0_3268_6851)">
+                <path d="M34.9087 29.6104L36.9315 34.8968H41.793C39.0393 27.8426 37.1015 22.8622 37.1015 22.8622H30.4552L31.5771 25.7689L17.2307 62.2468H22.2961L26.4097 51.606C26.4097 51.606 27.3786 51.606 29.8943 51.606L28.1605 47.1015L34.9087 29.6104Z" fill="currentColor"></path>
+                <path d="M59.7939 51.623L57.9921 47.1185H46.5524L42.4049 36.4607H37.5264L41.606 47.1185H30.0472L31.7641 51.623H43.3398L47.4023 62.2298H52.4677L48.3202 51.623H59.7939Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M144.848 40.7211C144.625 40.4156 142.634 37.8461 138.575 37.8461C133.292 37.8461 129.125 42.3714 129.125 48.1174C129.125 53.8635 133.314 58.3887 138.575 58.3887C143.269 58.3887 145.163 55.0421 145.163 55.0421V57.8625H148.405V28.2904H144.848V40.7211ZM139.123 55.0632C143.016 55.0632 144.869 51.6745 144.869 51.6745V44.5183C144.869 44.5183 143.016 41.1296 139.123 41.1296C135.229 41.1296 132.661 44.2446 132.661 48.0964C132.661 51.9481 135.145 55.0632 139.123 55.0632Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M160.424 37.8461C164.739 37.8461 166.717 40.7507 166.717 40.7507V28.2904H170.253V57.8625H167.012V55.0421C167.012 55.0421 165.118 58.3887 160.424 58.3887C155.162 58.3887 150.974 53.8635 150.974 48.1174C150.974 42.3714 155.141 37.8461 160.424 37.8461ZM160.971 55.0632C164.865 55.0632 166.717 51.6745 166.717 51.6745V44.5183C166.717 44.5183 164.865 41.1296 160.971 41.1296C157.077 41.1296 154.51 44.2446 154.51 48.0964C154.51 51.9481 156.993 55.0632 160.971 55.0632Z" fill="currentColor"></path>
+                <path d="M218.305 51.843C218.305 51.843 216.748 55.0423 213.443 55.0423C210.833 55.0423 208.749 53.611 208.749 50.2644V38.3303H205.192V50.8748C205.192 55.6947 208.665 58.3468 212.538 58.3468C216.769 58.3468 218.537 54.8318 218.537 54.8318V57.8206H221.82V38.3303H218.263V51.843H218.305Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M225.65 39.8037C225.65 39.8037 228.681 37.8252 232.954 37.8252C238.7 37.8252 241.457 41.3823 241.457 44.9814V57.8206H238.195V55.0002C238.195 55.0002 236.006 58.3468 231.564 58.3468C228.071 58.3468 224.303 55.9052 224.303 51.6746C224.303 47.865 227.629 45.1709 232.028 45.1709C235.627 45.1709 237.9 46.7705 237.9 46.7705V45.7181C237.9 41.6559 234.511 41.1086 232.954 41.1086C229.986 41.1086 227.123 42.7504 227.123 42.7504L225.65 39.8037ZM232.322 55.2107C235.795 55.2107 237.9 52.264 237.9 52.264V49.4857C237.9 49.4857 235.942 48.0965 232.785 48.0965C229.733 48.0965 227.839 49.633 227.839 51.6536C227.839 54.2004 230.133 55.2107 232.322 55.2107Z" fill="currentColor"></path>
+                <path d="M244.3 28.2904H247.857V57.8415H244.3V28.2904Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M112.416 28.2904H117.425L128.96 57.8625V57.8836H125.234V57.8625H125.15L122.098 49.8854H113.405H111.995H109.385L106.312 57.8625H102.502L113.279 30.4162L112.416 28.2904ZM115.784 33.3628L110.712 46.4966H120.772L115.784 33.3628Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M202.14 43.066V43.087C202.14 47.1913 200.73 50.8747 198.33 53.5899L202.582 58.3467L197.404 58.3677L195.405 56.1156C193.195 57.5469 190.5 58.3677 187.533 58.3677C179.008 58.3677 172.926 51.6114 172.926 43.087V43.066C172.926 34.5416 179.008 27.7853 187.533 27.7853C196.057 27.7853 202.14 34.5416 202.14 43.066ZM176.714 43.087C176.714 49.3803 181.113 55.0001 187.533 55.0001C189.595 55.0001 191.448 54.4107 193.047 53.4425L186.88 46.4967H192.016L195.868 50.8115C197.467 48.6857 198.393 45.9495 198.393 43.087V43.066C198.393 36.7727 193.952 31.1529 187.533 31.1529C181.113 31.1529 176.714 36.7727 176.714 43.066V43.087Z" fill="currentColor"></path>
+                <path d="M250.404 28.8587H251.204V31.3634H251.772V28.8587H252.593V28.2904H250.404V28.8587Z" fill="currentColor"></path>
+                <path d="M255.455 28.2904L254.487 29.869L253.54 28.2904H252.993V31.3634H253.561V29.427L254.487 30.9635L255.413 29.427V31.3634H256.003V28.2904H255.455Z" fill="currentColor"></path>
+                <path d="M81.5769 18.4022H83.1765V67.0647H81.5769V18.4022Z" fill="currentColor"></path>
+            </g>
+            <defs>
+                <clipPath id="clip0_3268_6851">
+                    <rect width="256" height="78.7692" fill="white" transform="translate(0 0.708374)"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="text-center">
+            <h1 class="h3 mb-3 fw-normal ">Please sign in</h1>
+        </div>
+        
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-floating">
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+            <label asp-for="Input.Email" class="form-label"></label>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+            <label asp-for="Input.Password" class="form-label"></label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-check text-start my-3">
+            <label asp-for="Input.RememberMe" class="form-label">
+                <input class="form-check-input" asp-for="Input.RememberMe" />
+                @Html.DisplayNameFor(m => m.Input.RememberMe)
+            </label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" id="login-submit"  type="submit">Sign in</button>
+        <div class="mt-3">
+            <div>
+                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+            </div>
+            <div>
+                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+            </div>
+            <div>
+                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="mt-5 mb-3 text-body-secondary">100638182 © 2023</p>
+        </div>
+      
+    </form>
+</main>
+
+@*<div class="row">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
@@ -78,8 +141,37 @@
             }
         </section>
     </div>
-</div>
+</div>*@
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
 
+        .form-signin {
+            max-width: 330px;
+            padding: 1rem;
+        }
+
+            .form-signin .form-floating:focus-within {
+                z-index: 2;
+            }
+
+            .form-signin input[type="email"] {
+                margin-bottom: -1px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .form-signin input[type="password"] {
+                margin-bottom: 10px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+    </style>
+}
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
