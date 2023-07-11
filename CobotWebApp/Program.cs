@@ -46,4 +46,5 @@ app.MapHub<AdtModelHub>("/adtModelHub");
 app.MapHub<AdtTwinHub>("/adtTwinHub");
 app.MapHub<AdtRelationshipHub>("/adtRelationshipHub");
 app.MapHub<IotTwinHub>("/iotTwinHub");
+app.MapHub<IotCommandHub>("/iotCommandHub");
 app.Run();

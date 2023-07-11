@@ -6,8 +6,8 @@ var createAdtRelationshipHubConnection = new signalR.HubConnectionBuilder().with
 
 document.getElementById("adtSyncButton").disabled = true;
 
-const uploadIcon = "<i class=\"bi bi-cloud-upload\"></i>";
-const replaceIcon = "<i class=\"bi bi-cloud\"></i>";
+const uploadIcon = "<i class=\"bi bi-check-all\"></i>";
+const replaceIcon = "<i class=\"bi bi-check-all\"></i>";
 const syncIcon = "<i class=\"bi bi-arrow-repeat\"></i>";
 
 
@@ -453,198 +453,124 @@ document.getElementById("adtSyncButton").addEventListener("click", function (eve
     adtWrist3AdtRelationshipElement.innerHTML = syncIcon;
     adtToolAdtRelationshipElement.innerHTML = syncIcon;
 
-    const uploadCobotPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadCobot").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadCobot").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadControlBoxPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadControlBox").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadControlBox").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadJointLoadPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadJointLoad").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadJointLoad").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadPayloadPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadPayload").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadPayload").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadBasePromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadBase").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadBase").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadShoulderPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadShoulder").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadShoulder").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadElbowPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadElbow").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadElbow").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadWrist1Promise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadWrist1").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadWrist1").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadWrist2Promise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadWrist2").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadWrist2").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadWrist3Promise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadWrist3").catch(function (err) {
-            reject(err.toString());
-        });
+    uploadDtdlModelHubConnection.invoke("UploadWrist3").catch(function (err) {
+        reject(err.toString());
     });
-    const uploadToolPromise = new Promise((resolve, reject) => {
-        uploadDtdlModelHubConnection.invoke("UploadTool").catch(function (err) {
-            reject(err.toString());
-        });
+
+    uploadDtdlModelHubConnection.invoke("UploadTool").catch(function (err) {
+        reject(err.toString());
     });
-    const createCobotPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateCobot").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateCobot").catch(function (err) {
+        reject(err.toString());
     });
-    const createControlBoxPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateControlBox").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateControlBox").catch(function (err) {
+        reject(err.toString());
     });
-    const createJointLoadPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateJointLoad").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateJointLoad").catch(function (err) {
+        reject(err.toString());
     });
-    const createPayloadPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreatePayload").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreatePayload").catch(function (err) {
+        reject(err.toString());
     });
-    const createBasePromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateBase").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateBase").catch(function (err) {
+        reject(err.toString());
     });
-    const createShoulderPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateShoulder").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateShoulder").catch(function (err) {
+        reject(err.toString());
     });
-    const createElbowPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateElbow").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateElbow").catch(function (err) {
+        reject(err.toString());
     });
-    const createWrist1Promise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateWrist1").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateWrist1").catch(function (err) {
+        reject(err.toString());
     });
-    const createWrist2Promise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateWrist2").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateWrist2").catch(function (err) {
+        reject(err.toString());
     });
-    const createWrist3Promise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateWrist3").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtTwinHubConnection.invoke("CreateWrist3").catch(function (err) {
+        reject(err.toString());
     });
-    const createToolPromise = new Promise((resolve, reject) => {
-        createAdtTwinHubConnection.invoke("CreateTool").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtTwinHubConnection.invoke("CreateTool").catch(function (err) {
+        reject(err.toString());
     });
-    const createCobotToControlBoxPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateCobotToControlBox").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateCobotToControlBox").catch(function (err) {
+        reject(err.toString());
     });
-    const createCobotToJointLoadPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateCobotToJointLoad").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateCobotToJointLoad").catch(function (err) {
+        reject(err.toString());
     });
-    const createCobotToPayloadPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateCobotToPayload").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateCobotToPayload").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToBasePromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToBase").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToBase").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToShoulderPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToShoulder").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToShoulder").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToElbowPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToElbow").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToElbow").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToWrist1Promise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist1").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist1").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToWrist2Promise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist2").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist2").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToWrist3Promise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist3").catch(function (err) {
-            reject(err.toString());
-        });
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToWrist3").catch(function (err) {
+        reject(err.toString());
     });
-    const CreateJointLoadToolPromise = new Promise((resolve, reject) => {
-        createAdtRelationshipHubConnection.invoke("CreateJointLoadToTool").catch(function (err) {
-            reject(err.toString());
-        });
+
+    createAdtRelationshipHubConnection.invoke("CreateJointLoadToTool").catch(function (err) {
+        reject(err.toString());
+
     });
-    new Promise(uploadCobotPromise)
-        .then(uploadControlBoxPromise)
-        .then(uploadJointLoadPromise)
-        .then(uploadPayloadPromise)
-        .then(uploadBasePromise)
-        .then(uploadShoulderPromise)
-        .then(uploadElbowPromise)
-        .then(uploadWrist1Promise)
-        .then(uploadWrist2Promise)
-        .then(uploadWrist3Promise)
-        .then(uploadToolPromise)
-        .then(createCobotPromise)
-        .then(createControlBoxPromise)
-        .then(createJointLoadPromise)
-        .then(createPayloadPromise)
-        .then(createBasePromise)
-        .then(createShoulderPromise)
-        .then(createElbowPromise)
-        .then(createWrist1Promise)
-        .then(createWrist2Promise)
-        .then(createWrist3Promise)
-        .then(createToolPromise)
-        .then(createCobotToControlBoxPromise)
-        .then(createCobotToJointLoadPromise)
-        .then(createCobotToPayloadPromise)
-        .then(CreateJointLoadToBasePromise)
-        .then(CreateJointLoadToShoulderPromise)
-        .then(CreateJointLoadToElbowPromise)
-        .then(CreateJointLoadToWrist1Promise)
-        .then(CreateJointLoadToWrist2Promise)
-        .then(CreateJointLoadToWrist3Promise)
-        .then(CreateJointLoadToolPromise)
 });
 
 

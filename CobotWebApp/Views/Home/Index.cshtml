@@ -20,9 +20,12 @@
                         <h4 class="my-0 fw-normal">Cobot Client</h4>
                     </div>
                     <div class="card-body">
-                        <h1 id="cobot-client-title" class="card-title pricing-card-title mt-3 mb-4">Status</h1>
-                        <button type="button" id="cobotStartSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill">Start</button>
-                        <button type="button" id="cobotStopSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill">Stop</button>
+                        <h1 id="cobotCommandStatus" class="card-title pricing-card-title mt-3 mb-4">Status</h1>
+                        <button type="button" id="cobotStartCommandButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@@mdo">
+                            Start
+                        </button>
+                        <button type="button" id="cobotStopCommandButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill">Stop</button>
                     </div>
                 </div>
             </div>
@@ -32,6 +35,7 @@
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">Azure Digital Twins</h4>
+                       
                     </div>
                     <div class="card-body">
                         <h1 id="adt-title" class="card-title pricing-card-title">Status</h1>
@@ -179,8 +183,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" id="iotStartSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill">Start</button>
-                        <button type="button" id="iotStopSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill">Stop</button>
+                        <div class="pt-2">
+                            <button type="button" id="iotStartSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill mt-4">Start</button>
+                            <button type="button" id="iotStopSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill mt-4">Stop</button>
+                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -227,6 +234,28 @@
         </div>
     </footer>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New payload</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="payloadText" class="col-form-label">Payload:</label>
+                        <textarea class="form-control" id="payloadText"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="cobotSendPayloadButton">Send payload</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section CSS{
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
    <style>
@@ -249,4 +278,5 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/adt-model-hub.js"></script>
     <script src="~/js/iot-model-hub.js"></script>
+    <script src="~/js/iot-command-hub.js"></script>
 }
