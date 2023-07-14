@@ -35,7 +35,7 @@
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">Azure Digital Twins</h4>
-                       
+
                     </div>
                     <div class="card-body">
                         <h1 id="adt-title" class="card-title pricing-card-title">Status</h1>
@@ -74,7 +74,7 @@
                                         <td id="adt-payload-adt-twin"></td>
                                         <td id="adt-payload-adt-relationship"></td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <th scope="row" class="text-start">Base</th>
                                         <td id="adt-base-dtdl-model"></td>
                                         <td id="adt-base-adt-twin"></td>
@@ -119,7 +119,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <input type="button" id="adtSyncButton" class="w-100 btn btn-outline-danger btn-lg px-4 rounded-pill" value="Sync"/>
+                        <input type="button" id="adtSyncButton" class="w-100 btn btn-outline-danger btn-lg px-4 rounded-pill" value="Sync" />
                     </div>
                 </div>
             </div>
@@ -148,15 +148,15 @@
                                         <th scope="row" class="text-start">Control Box</th>
                                         <td id="iot-control-box"></td>
                                     </tr>
-                                      <tr>
+                                    <tr>
                                         <th scope="row" class="text-start">Payload</th>
                                         <td id="iot-payload"></td>
                                     </tr>
-                                      <tr>
+                                    <tr>
                                         <th scope="row" class="text-start">Base</th>
                                         <td id="iot-base"></td>
                                     </tr>
-                                      <tr>
+                                    <tr>
                                         <th scope="row" class="text-start">Shoulder</th>
                                         <td id="iot-shoulder"></td>
                                     </tr>
@@ -187,13 +187,57 @@
                             <button type="button" id="iotStartSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill mt-4">Start</button>
                             <button type="button" id="iotStopSyncButton" class="btn btn-outline-danger btn-lg px-4 rounded-pill mt-4">Stop</button>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
-          
+
         </div>
-        
+        <div class="row row-cols-1 row-cols-md-1 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Azure Digital Twins Instances</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm text-center">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 34%;"></th>
+                                        <th style="width: 34%;">Twin Instance 1</th>
+                                        <th style="width: 34%;">Twin Instance 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" colspan="3" class="text-start">Cobot</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start fst-italic">Elapsed Time</th>
+                                        <td class="fw-semibold">2305.5632</td>
+                                        <td class="fw-semibold">2305.5632</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" colspan="3" class="text-start">Control Box</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start fst-italic">Temperature</th>
+                                        <td class="fw-semibold">24.5</td>
+                                        <td class="fw-semibold">22.5</td>
+                                    </tr>
+                                </tbody>
+
+                               
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -217,7 +261,7 @@
                     <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.linkedin.com/in/wajahatalikhan12/">Dr. Wajahat Ali Khan</a></li>
                     <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.addqual.com/">Ben Anderson</a></li>
                     <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.linkedin.com/in/gayankuruppu/">100638182</a></li>
-      
+
                 </ul>
             </div>
             <div class="col-4">
@@ -230,7 +274,7 @@
                     <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-Web-App</a></li>
                 </ul>
             </div>
-        
+
         </div>
     </footer>
 </div>
@@ -257,13 +301,13 @@
     </div>
 </div>
 @section CSS{
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-   <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
         .bi {
             vertical-align: -.125em;
             fill: currentColor;
         }
-   </style>
+    </style>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="arrow-right-short" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
