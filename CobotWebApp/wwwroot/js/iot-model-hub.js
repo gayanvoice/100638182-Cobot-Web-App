@@ -265,27 +265,27 @@ document.getElementById("iotStartSyncButton").addEventListener("click", function
     iotTwinHubConnection.invoke("payloadStartIotCommand").catch(function (err) {
         reject(err.toString());
     });
-    //iotTwinHubConnection.invoke("baseStartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("shoulderStartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("elbowStartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist1StartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist2StartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist3StartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("toolStartIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
+    iotTwinHubConnection.invoke("baseStartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("shoulderStartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("elbowStartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist1StartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist2StartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist3StartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("toolStartIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
 });
 document.getElementById("iotStopSyncButton").addEventListener("click", function (event) {
 
@@ -314,27 +314,27 @@ document.getElementById("iotStopSyncButton").addEventListener("click", function 
     iotTwinHubConnection.invoke("payloadStopIotCommand").catch(function (err) {
         reject(err.toString());
     });
-    //iotTwinHubConnection.invoke("baseStopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("shoulderStopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("elbowStopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist1StopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist2StopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("wrist3StopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
-    //iotTwinHubConnection.invoke("toolStopIotCommand").catch(function (err) {
-    //    reject(err.toString());
-    //});
+    iotTwinHubConnection.invoke("baseStopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("shoulderStopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("elbowStopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist1StopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist2StopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("wrist3StopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
+    iotTwinHubConnection.invoke("toolStopIotCommand").catch(function (err) {
+        reject(err.toString());
+    });
 });
 function getTotalDurationIot(duration) {
     totalDurationIot = totalDurationIot + duration;
