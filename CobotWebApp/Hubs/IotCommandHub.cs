@@ -12,12 +12,12 @@ namespace CobotWebApp.Hubs
         string url = "https://100638182-cobot-iot-ingestion-function-app.azurewebsites.net";
         public async Task cobotStartCommand(string payload)
         {
-            HubResponseModel hubResponseModel = await GetPayload(url, "Cobot", "startCobotCommand", payload);
+            HubResponseModel hubResponseModel = await GetPayload(url, "Cobot", "StartCobotCommand", payload);
             await Clients.All.SendAsync("cobotStartCommandResponse", JsonSerializer.Serialize(hubResponseModel));
         }
         public async Task cobotStopCommand()
         {
-            HubResponseModel hubResponseModel = await Get(url, "Cobot", "stopCobotCommand");
+            HubResponseModel hubResponseModel = await Get(url, "Cobot", "StopCobotCommand");
             await Clients.All.SendAsync("cobotStopCommandResponse", JsonSerializer.Serialize(hubResponseModel));
         }
         public async Task<HubResponseModel> Get(string url, string device, string method)

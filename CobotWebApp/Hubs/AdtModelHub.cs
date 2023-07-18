@@ -70,7 +70,7 @@ namespace CobotWebApp.Hubs
             HttpClient httpClient = new() { BaseAddress = new Uri(url) };
 
             using HttpResponseMessage httpResponseMessage = await httpClient
-                .GetAsync($"/api/UploadDtdlModelFunction?dtdlModelName={dtdlModelName}");
+                .GetAsync($"/api/UploadDTDLModelFunction?name={dtdlModelName}");
 
             HttpResponseModel? httpResponseModel = await httpResponseMessage.Content
                 .ReadFromJsonAsync<HttpResponseModel>();
