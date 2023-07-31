@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using CobotWebApp.Hubs;
 using Microsoft.DotNet.Scaffolding.Shared.ProjectModel;
 using CobotWebApp.Singleton;
+using CobotWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
@@ -17,7 +18,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddAuthorization();
+builder.Services.AddHttpClient();
 builder.Services.AddScoped<IBuildDependency, BuildDependency>();
+builder.Services.AddHttpClient<CobotAdtInitializeFunctionAppService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

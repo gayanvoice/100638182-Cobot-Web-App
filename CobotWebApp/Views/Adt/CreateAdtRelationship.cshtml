@@ -1,0 +1,146 @@
+﻿@using static CobotWebApp.Models.View.AdtViewModel.CreateAdtRelationshipViewModel;
+@using static CobotWebApp.Models.Request.CobotAdtInitializeFunctionModel;
+@model CobotWebApp.Models.View.AdtViewModel.CreateAdtRelationshipViewModel;
+
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <div class="d-flex align-items-center link-body-emphasise">
+                <i class="bi bi-robot me-2" style="font-size: 2em;"></i> <span class="fs-4">Cobot Digital Twin</span>
+            </div>
+            <partial name="_LoginPartial" />
+        </div>
+    </header>
+    <main>
+        @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
+        @if (Model.CreateAdtRelationshipResponseViewModelList is not null)
+        {
+            <div class="row row-cols-1 row-cols-md-12 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Create Adt Relationships</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">@Model.CreateAdtRelationshipResponseViewModelList.Count()<small class="text-body-secondary fw-light">/adt relationships</small></h1>
+                            <h1 class="card-title pricing-card-title">@Model.CreateAdtRelationshipResponseViewModelList.Sum(model => model.ResponseModel.Duration)<small class="text-body-secondary fw-light">/ms</small></h1>
+                            <div class="gap-4 pt-md-3 pb-md-3 mt-4 align-items-center justify-content-center">
+                                <div class="list-group">
+                                    @foreach (CreateAdtRelationshipResponseViewModel? createAdtRelationshipResponseViewModel in Model.CreateAdtRelationshipResponseViewModelList)
+                                    {
+                                        if (createAdtRelationshipResponseViewModel is not null && createAdtRelationshipResponseViewModel.ResponseModel is not null)
+                                        {
+                                            if (createAdtRelationshipResponseViewModel.ResponseModel.HttpStatusCode == System.Net.HttpStatusCode.OK)
+                                            {
+                                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                                                    <i class="bi bi-check-lg rounded-circle flex-shrink-0"></i>
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                        <div>
+                                                            <h6 class="mb-0 text-start">From:@createAdtRelationshipResponseViewModel.From To:@createAdtRelationshipResponseViewModel.To Name:@createAdtRelationshipResponseViewModel.Name</h6>
+                                                            <p class="mb-0 opacity-75 text-start">@createAdtRelationshipResponseViewModel.ResponseModel.Message</p>
+                                                        </div>
+                                                        <small class="opacity-50 text-nowrap">@createAdtRelationshipResponseViewModel.ResponseModel.Duration/ms</small>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                                                    <i class="bi bi-x-lg rounded-circle flex-shrink-0"></i>
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                        <div>
+                                                            <h6 class="mb-0 text-start">From:@createAdtRelationshipResponseViewModel.From To:@createAdtRelationshipResponseViewModel.To Name:@createAdtRelationshipResponseViewModel.Name</h6>
+                                                            <p class="mb-0 opacity-75 text-start">@createAdtRelationshipResponseViewModel.ResponseModel.Message</p>
+                                                        </div>
+                                                        <small class="opacity-50 text-nowrap">@createAdtRelationshipResponseViewModel.ResponseModel.Duration/ms</small>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <a class="w-100 btn btn-lg btn-primary" asp-controller="Adt" asp-action="Dashboard">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+
+        }
+    </main>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md text-center">
+                <img class="mb-2" src="/img//uod_logo.jpg" alt="" width="128">
+                <small class="d-block mb-3 text-body-secondary">University of Derby © 2023</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Projects</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-Web-App</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-Client-App</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-IoT-Command-Function-App</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-TwinToTwin-EventGrid-Function-App</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-Ingestion-Function-App</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-Initialize-Function-App</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Supervisors</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Maqbool Hussain</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Wajahat Ali Khan</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Ben Anderson @@ AddQual</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Musthafa @@ AddQual</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .icon-link > .bi {
+            width: .75em;
+            height: .75em;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+        <symbol id="house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+        </symbol>
+    </svg>
+}
+@section Scripts{
+}

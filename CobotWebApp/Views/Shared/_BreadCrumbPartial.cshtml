@@ -1,0 +1,33 @@
+﻿@model List<CobotWebApp.Models.View.Partial.BreadCrumbPartialViewModel>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis" asp-controller="Home" asp-action="Index">
+                <svg class="bi" width="16" height="16"><use xlink:href="#house-door-fill"></use></svg>
+                <span class="visually-hidden">Home</span>
+            </a>
+        </li>
+        @foreach (var breadCrumbPartialViewModel in Model)
+        {
+            if (breadCrumbPartialViewModel != null)
+            {
+                if (breadCrumbPartialViewModel.IsCurrentItem)
+                {
+                    <li class="breadcrumb-item active" aria-current="page">
+                        @breadCrumbPartialViewModel.BreadCrumbItem
+                    </li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item">
+                        <a class="link-body-emphasis fw-semibold text-decoration-none"
+                        asp-controller="@breadCrumbPartialViewModel.AspController" 
+                        asp-action="@breadCrumbPartialViewModel.AspAction">@breadCrumbPartialViewModel.BreadCrumbItem</a>
+                    </li>
+                }
+
+            }
+        }
+    </ol>
+</nav>

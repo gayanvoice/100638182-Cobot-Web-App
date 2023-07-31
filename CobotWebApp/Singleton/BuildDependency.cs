@@ -20,7 +20,7 @@ namespace CobotWebApp.Singleton
                     value = value.Substring(index + BuildVersionMetadataPrefix.Length);
                     if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var timeStamp))
                     {
-                        return $"{timeStamp.Year}{timeStamp.Month}{timeStamp.Day}{timeStamp.Hour}{timeStamp.Minute}{timeStamp.Second}{timeStamp.Millisecond}"; ;
+                        return $"{timeStamp.Year}{timeStamp.Month}{timeStamp.Day}{timeStamp.Hour + 1}{timeStamp.Minute}{timeStamp.Second}{timeStamp.Millisecond}"; ;
                     }
                 }
             }
