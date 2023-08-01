@@ -1,6 +1,7 @@
 ﻿using CobotWebApp.Models.Request;
 using CobotWebApp.Models.View.Partial;
 using CobotWebApp.Services;
+using static CobotWebApp.Models.View.IotViewModel;
 
 namespace CobotWebApp.Helper
 {
@@ -300,6 +301,48 @@ namespace CobotWebApp.Helper
                 closePopupControlCommandRequestModel.ResponseTimeout = 20;
                 CobotIotCommandFunctionModel.ResponseModel.ClosePopupControlCommandResponseModel? closePopupControlCommandResponseModel = await _cobotIotCommandFunctionService
                     .PostClosePopupControlCommandResponseModelAsync(closePopupControlCommandRequestModel: closePopupControlCommandRequestModel);
+                return closePopupControlCommandResponseModel;
+            }
+        }
+        public class OpenPopupControlCommandRequestViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Open Popup Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
+        public class OpenPopupControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public OpenPopupControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Open Popup Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel?> PostOpenPopupControlCommandResponseModelAsync(OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
+            {
+                CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel openPopupControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel();
+                CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel.PayloadModel payloadModel = new CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel.PayloadModel();
+                payloadModel.PopupText = openPopupControlCommandRequestViewModel.PopupText;
+                openPopupControlCommandRequestModel.DeviceId = "Cobot";
+                openPopupControlCommandRequestModel.ResponseTimeout = 20;
+                openPopupControlCommandRequestModel.Payload = payloadModel;
+                CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel? closePopupControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostOpenPopupControlCommandResponseModelAsync(openPopupControlCommandRequestModel: openPopupControlCommandRequestModel);
                 return closePopupControlCommandResponseModel;
             }
         }

@@ -59,6 +59,16 @@
                 public string? DeviceId { get; set; }
                 public double ResponseTimeout { get; set; }
             }
+            public class OpenPopupControlCommandRequestModel
+            {
+                public string? DeviceId { get; set; }
+                public double ResponseTimeout { get; set; } = 20.0;
+                public PayloadModel? Payload { get; set; }
+                public class PayloadModel
+                {
+                    public string? PopupText { get; set; }
+                }
+            }
         }
         public class ResponseModel
         {
@@ -458,6 +468,11 @@
                 {
                     public string? DeviceId { get; set; }
                     public double ResponseTimeout { get; set; } = 20.0;
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? PopupText { get; set; }
+                    }
                 }
                 public class CommandResponseModel
                 {

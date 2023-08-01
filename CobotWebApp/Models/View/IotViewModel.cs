@@ -1,5 +1,6 @@
 using CobotWebApp.Models.Request;
 using CobotWebApp.Models.View.Partial;
+using System.ComponentModel.DataAnnotations;
 
 namespace CobotWebApp.Models.View
 {
@@ -63,6 +64,18 @@ namespace CobotWebApp.Models.View
         {
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
             public CobotIotCommandFunctionModel.ResponseModel.ClosePopupControlCommandResponseModel? ClosePopupControlCommandResponseModel { get; set; }
+        }
+        public class OpenPopupControlCommandRequestViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            [Required]
+            [Display(Name = "Popup Text")]
+            public string? PopupText { get; set; }
+        }
+        public class OpenPopupControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel? OpenPopupControlCommandResponseModel { get; set; }
         }
     }
 }

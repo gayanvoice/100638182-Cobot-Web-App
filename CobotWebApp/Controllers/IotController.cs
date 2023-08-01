@@ -7,6 +7,7 @@ using CobotWebApp.Singleton;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using static CobotWebApp.Models.View.IotViewModel;
 
 namespace CobotWebApp.Controllers
 {
@@ -133,6 +134,32 @@ namespace CobotWebApp.Controllers
             closePopupControlCommandResponseViewModel.BreadCrumbPartialViewModelList = closePopupControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
             closePopupControlCommandResponseViewModel.ClosePopupControlCommandResponseModel = await closePopupControlCommandResponseViewHelper.PostClosePopupControlCommandResponseModelAsync();
             return View(closePopupControlCommandResponseViewModel);
+        }
+        [HttpGet]
+        public IActionResult OpenPopupControlCommandRequest()
+        {
+            IotViewHelper.OpenPopupControlCommandRequestViewHelper openPopupControlCommandRequestViewHelper = new IotViewHelper.OpenPopupControlCommandRequestViewHelper();
+            IotViewModel.OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel = new IotViewModel.OpenPopupControlCommandRequestViewModel();
+            openPopupControlCommandRequestViewModel.BreadCrumbPartialViewModelList = openPopupControlCommandRequestViewHelper.GetBreadCrumbPartialViewModelList();
+            return View(openPopupControlCommandRequestViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> OpenPopupControlCommandResponseAsync(OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
+        {
+            if (openPopupControlCommandRequestViewModel.PopupText is not null)
+            {
+                IotViewHelper.OpenPopupControlCommandResponseViewHelper openPopupControlCommandResponseViewHelper = new IotViewHelper
+           .OpenPopupControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+                IotViewModel.OpenPopupControlCommandResponseViewModel openPopupControlCommandResponseViewModel = new IotViewModel.OpenPopupControlCommandResponseViewModel();
+                openPopupControlCommandResponseViewModel.BreadCrumbPartialViewModelList = openPopupControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+                openPopupControlCommandResponseViewModel.OpenPopupControlCommandResponseModel = await openPopupControlCommandResponseViewHelper.PostOpenPopupControlCommandResponseModelAsync(openPopupControlCommandRequestViewModel);
+                return View(openPopupControlCommandResponseViewModel);
+            }
+            else
+            {
+                return Redirect("OpenPopupControlCommandRequest");
+            }
+           
         }
     }
 }

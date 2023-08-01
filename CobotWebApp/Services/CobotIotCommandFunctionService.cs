@@ -219,5 +219,23 @@ namespace CobotWebApp.Services
                 return new ClosePopupControlCommandResponseModel();
             }
         }
+        public async Task<OpenPopupControlCommandResponseModel?> PostOpenPopupControlCommandResponseModelAsync(
+         CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel openPopupControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(openPopupControlCommandRequestModel), Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "Yr_VRczCSMJ35U_ZffmZmsiB8juekWUnlcsMVkBrvcchAzFugLDaGg==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/OpenPopupControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                OpenPopupControlCommandResponseModel? openPopupControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<OpenPopupControlCommandResponseModel>(jsonResponse);
+                return openPopupControlCommandResponseModel;
+            }
+            catch
+            {
+                return new OpenPopupControlCommandResponseModel();
+            }
+        }
     }
 }
