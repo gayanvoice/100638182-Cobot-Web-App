@@ -1,13 +1,6 @@
 ﻿using CobotWebApp.Models.Request;
-using CobotWebApp.Models.View;
 using CobotWebApp.Models.View.Partial;
 using CobotWebApp.Services;
-using static CobotWebApp.Models.Request.CobotAdtInitializeFunctionModel.RequestModel;
-using static CobotWebApp.Models.View.AdtViewModel.CreateAdtModelViewModel;
-using static CobotWebApp.Models.View.AdtViewModel.CreateAdtRelationshipViewModel;
-using static CobotWebApp.Models.View.AdtViewModel.DeleteAdtModelViewModel;
-using static CobotWebApp.Models.View.AdtViewModel.DeleteAdtRelationshipViewModel;
-using static CobotWebApp.Models.View.AdtViewModel.UploadDtdlModelViewModel;
 
 namespace CobotWebApp.Helper
 {
@@ -178,6 +171,136 @@ namespace CobotWebApp.Helper
                 CobotIotCommandFunctionModel.ResponseModel.StopFreeDriveControlCommandResponseModel? stopFreeDriveControlCommandResponseModel = await _cobotIotCommandFunctionService
                     .PostStopFreeDriveControlCommandResponseModelAsync(stopFreeDriveControlCommandRequestModel: stopFreeDriveControlCommandRequestModel);
                 return stopFreeDriveControlCommandResponseModel;
+            }
+        }
+        public class PlayControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public PlayControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Play Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.PlayControlCommandResponseModel?> PostPlayControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.PlayControlCommandRequestModel playControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.PlayControlCommandRequestModel();
+                playControlCommandRequestModel.DeviceId = "Cobot";
+                playControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.PlayControlCommandResponseModel? playControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostPlayControlCommandResponseModelAsync(playControlCommandRequestModel: playControlCommandRequestModel);
+                return playControlCommandResponseModel;
+            }
+        }
+        public class PauseControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public PauseControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Pause Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.PauseControlCommandResponseModel?> PostPauseControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.PauseControlCommandRequestModel pauseControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.PauseControlCommandRequestModel();
+                pauseControlCommandRequestModel.DeviceId = "Cobot";
+                pauseControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.PauseControlCommandResponseModel? pauseControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostPauseControlCommandResponseModelAsync(pauseControlCommandRequestModel: pauseControlCommandRequestModel);
+                return pauseControlCommandResponseModel;
+            }
+        }
+        public class CloseSafetyPopupControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public CloseSafetyPopupControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Close Saety Popup Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.CloseSafetyPopupControlCommandResponseModel?> PostCloseSafetyPopupControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.CloseSafetyPopupControlCommandRequestModel closeSafetyPopupControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.CloseSafetyPopupControlCommandRequestModel();
+                closeSafetyPopupControlCommandRequestModel.DeviceId = "Cobot";
+                closeSafetyPopupControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.CloseSafetyPopupControlCommandResponseModel? closeSafetyPopupControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostCloseSafetyPopupControlCommandResponseModelAsync(closeSafetyPopupControlCommandRequestModel: closeSafetyPopupControlCommandRequestModel);
+                return closeSafetyPopupControlCommandResponseModel;
+            }
+        }
+        public class UnlockProtectiveStopControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public UnlockProtectiveStopControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Unlock Protective Stop Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.UnlockProtectiveStopControlCommandResponseModel?> PostUnlockProtectiveStopControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.UnlockProtectiveStopControlCommandRequestModel unlockProtectiveStopControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.UnlockProtectiveStopControlCommandRequestModel();
+                unlockProtectiveStopControlCommandRequestModel.DeviceId = "Cobot";
+                unlockProtectiveStopControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.UnlockProtectiveStopControlCommandResponseModel? unlockProtectiveStopControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostUnlockProtectiveStopControlCommandResponseModelAsync(unlockProtectiveStopControlCommandRequestModel: unlockProtectiveStopControlCommandRequestModel);
+                return unlockProtectiveStopControlCommandResponseModel;
+            }
+        }
+        public class ClosePopupControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public ClosePopupControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Close Popup Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.ClosePopupControlCommandResponseModel?> PostClosePopupControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.ClosePopupControlCommandRequestModel closePopupControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.ClosePopupControlCommandRequestModel();
+                closePopupControlCommandRequestModel.DeviceId = "Cobot";
+                closePopupControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.ClosePopupControlCommandResponseModel? closePopupControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostClosePopupControlCommandResponseModelAsync(closePopupControlCommandRequestModel: closePopupControlCommandRequestModel);
+                return closePopupControlCommandResponseModel;
             }
         }
     }

@@ -39,5 +39,30 @@ namespace CobotWebApp.Models.View
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
             public CobotIotCommandFunctionModel.ResponseModel.StopFreeDriveControlCommandResponseModel? StopFreeDriveControlCommandResponseModel { get; set; }
         }
+        public class PlayControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.PlayControlCommandResponseModel? PlayControlCommandResponseModel { get; set; }
+        }
+        public class PauseControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.PauseControlCommandResponseModel? PauseControlCommandResponseModel { get; set; }
+        }
+        public class CloseSafetyPopupControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.CloseSafetyPopupControlCommandResponseModel? CloseSafetyPopupControlCommandResponseModel { get; set; }
+        }
+        public class UnlockProtectiveStopControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.UnlockProtectiveStopControlCommandResponseModel? UnlockProtectiveStopControlCommandResponseModel { get; set; }
+        }
+        public class ClosePopupControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.ClosePopupControlCommandResponseModel? ClosePopupControlCommandResponseModel { get; set; }
+        }
     }
 }

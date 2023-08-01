@@ -89,5 +89,50 @@ namespace CobotWebApp.Controllers
             stopFreeDriveControlCommandResponseViewModel.StopFreeDriveControlCommandResponseModel = await stopFreeDriveControlCommandResponseViewHelper.PostStopFreeDriveControlCommandResponseModelAsync();
             return View(stopFreeDriveControlCommandResponseViewModel);
         }
+        public async Task<IActionResult> PlayControlCommandResponseAsync()
+        {
+            IotViewHelper.PlayControlCommandResponseViewHelper playControlCommandResponseViewHelper = new IotViewHelper
+                .PlayControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.PlayControlCommandResponseViewModel playControlCommandResponseViewModel = new IotViewModel.PlayControlCommandResponseViewModel();
+            playControlCommandResponseViewModel.BreadCrumbPartialViewModelList = playControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            playControlCommandResponseViewModel.PlayControlCommandResponseModel = await playControlCommandResponseViewHelper.PostPlayControlCommandResponseModelAsync();
+            return View(playControlCommandResponseViewModel);
+        }
+        public async Task<IActionResult> PauseControlCommandResponseAsync()
+        {
+            IotViewHelper.PauseControlCommandResponseViewHelper pauseControlCommandResponseViewHelper = new IotViewHelper
+                .PauseControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.PauseControlCommandResponseViewModel pauseControlCommandResponseViewModel = new IotViewModel.PauseControlCommandResponseViewModel();
+            pauseControlCommandResponseViewModel.BreadCrumbPartialViewModelList = pauseControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            pauseControlCommandResponseViewModel.PauseControlCommandResponseModel = await pauseControlCommandResponseViewHelper.PostPauseControlCommandResponseModelAsync();
+            return View(pauseControlCommandResponseViewModel);
+        }
+        public async Task<IActionResult> CloseSafetyPopupControlCommandResponseAsync()
+        {
+            IotViewHelper.CloseSafetyPopupControlCommandResponseViewHelper closeSafetyPopupControlCommandResponseViewHelper = new IotViewHelper
+                .CloseSafetyPopupControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.CloseSafetyPopupControlCommandResponseViewModel closeSafetyPopupControlCommandResponseViewModel = new IotViewModel.CloseSafetyPopupControlCommandResponseViewModel();
+            closeSafetyPopupControlCommandResponseViewModel.BreadCrumbPartialViewModelList = closeSafetyPopupControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            closeSafetyPopupControlCommandResponseViewModel.CloseSafetyPopupControlCommandResponseModel = await closeSafetyPopupControlCommandResponseViewHelper.PostCloseSafetyPopupControlCommandResponseModelAsync();
+            return View(closeSafetyPopupControlCommandResponseViewModel);
+        }
+        public async Task<IActionResult> UnlockProtectiveStopControlCommandResponseAsync()
+        {
+            IotViewHelper.UnlockProtectiveStopControlCommandResponseViewHelper unlockProtectiveStopControlCommandResponseViewHelper = new IotViewHelper
+                .UnlockProtectiveStopControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.UnlockProtectiveStopControlCommandResponseViewModel unlockProtectiveStopControlCommandResponseViewModel = new IotViewModel.UnlockProtectiveStopControlCommandResponseViewModel();
+            unlockProtectiveStopControlCommandResponseViewModel.BreadCrumbPartialViewModelList = unlockProtectiveStopControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            unlockProtectiveStopControlCommandResponseViewModel.UnlockProtectiveStopControlCommandResponseModel = await unlockProtectiveStopControlCommandResponseViewHelper.PostUnlockProtectiveStopControlCommandResponseModelAsync();
+            return View(unlockProtectiveStopControlCommandResponseViewModel);
+        }
+        public async Task<IActionResult> ClosePopupControlCommandResponseAsync()
+        {
+            IotViewHelper.ClosePopupControlCommandResponseViewHelper closePopupControlCommandResponseViewHelper = new IotViewHelper
+                .ClosePopupControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.ClosePopupControlCommandResponseViewModel closePopupControlCommandResponseViewModel = new IotViewModel.ClosePopupControlCommandResponseViewModel();
+            closePopupControlCommandResponseViewModel.BreadCrumbPartialViewModelList = closePopupControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            closePopupControlCommandResponseViewModel.ClosePopupControlCommandResponseModel = await closePopupControlCommandResponseViewHelper.PostClosePopupControlCommandResponseModelAsync();
+            return View(closePopupControlCommandResponseViewModel);
+        }
     }
 }
