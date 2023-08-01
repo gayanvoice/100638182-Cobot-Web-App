@@ -128,5 +128,57 @@ namespace CobotWebApp.Helper
                 return powerOnControlCommandResponseModel;
             }
         }
+        public class StartFreeDriveControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public StartFreeDriveControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Start Free Drive Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.StartFreeDriveControlCommandResponseModel?> PostStartFreeDriveControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.StartFreeDriveControlCommandRequestModel startFreeDriveControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.StartFreeDriveControlCommandRequestModel();
+                startFreeDriveControlCommandRequestModel.DeviceId = "Cobot";
+                startFreeDriveControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.StartFreeDriveControlCommandResponseModel? startFreeDriveControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostStartFreeDriveControlCommandResponseModelAsync(startFreeDriveControlCommandRequestModel: startFreeDriveControlCommandRequestModel);
+                return startFreeDriveControlCommandResponseModel;
+            }
+        }
+        public class StopFreeDriveControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public StopFreeDriveControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Stop Free Drive Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.StopFreeDriveControlCommandResponseModel?> PostStopFreeDriveControlCommandResponseModelAsync()
+            {
+                CobotIotCommandFunctionModel.RequestModel.StopFreeDriveControlCommandRequestModel stopFreeDriveControlCommandRequestModel =
+                    new CobotIotCommandFunctionModel.RequestModel.StopFreeDriveControlCommandRequestModel();
+                stopFreeDriveControlCommandRequestModel.DeviceId = "Cobot";
+                stopFreeDriveControlCommandRequestModel.ResponseTimeout = 20;
+                CobotIotCommandFunctionModel.ResponseModel.StopFreeDriveControlCommandResponseModel? stopFreeDriveControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostStopFreeDriveControlCommandResponseModelAsync(stopFreeDriveControlCommandRequestModel: stopFreeDriveControlCommandRequestModel);
+                return stopFreeDriveControlCommandResponseModel;
+            }
+        }
     }
 }

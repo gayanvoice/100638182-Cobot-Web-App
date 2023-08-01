@@ -29,5 +29,15 @@ namespace CobotWebApp.Models.View
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
             public CobotIotCommandFunctionModel.ResponseModel.PowerOffControlCommandResponseModel? PowerOffControlCommandResponseModel { get; set; }
         }
+        public class StartFreeDriveControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.StartFreeDriveControlCommandResponseModel? StartFreeDriveControlCommandResponseModel { get; set; }
+        }
+        public class StopFreeDriveControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.StopFreeDriveControlCommandResponseModel? StopFreeDriveControlCommandResponseModel { get; set; }
+        }
     }
 }

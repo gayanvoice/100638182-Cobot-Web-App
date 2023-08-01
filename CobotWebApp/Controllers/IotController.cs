@@ -71,5 +71,23 @@ namespace CobotWebApp.Controllers
             powerOffControlCommandResponseViewModel.PowerOffControlCommandResponseModel = await powerOffControlCommandResponseViewHelper.PostPowerOffControlCommandResponseModelAsync();
             return View(powerOffControlCommandResponseViewModel);
         }
+        public async Task<IActionResult> StartFreeDriveControlCommandResponseAsync()
+        {
+            IotViewHelper.StartFreeDriveControlCommandResponseViewHelper startFreeDriveControlCommandResponseViewHelper = new IotViewHelper
+                .StartFreeDriveControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.StartFreeDriveControlCommandResponseViewModel startFreeDriveControlCommandResponseViewModel = new IotViewModel.StartFreeDriveControlCommandResponseViewModel();
+            startFreeDriveControlCommandResponseViewModel.BreadCrumbPartialViewModelList = startFreeDriveControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            startFreeDriveControlCommandResponseViewModel.StartFreeDriveControlCommandResponseModel = await startFreeDriveControlCommandResponseViewHelper.PostStartFreeDriveControlCommandResponseModelAsync();
+            return View(startFreeDriveControlCommandResponseViewModel);
+        }
+        public async Task<IActionResult> StopFreeDriveControlCommandResponseAsync()
+        {
+            IotViewHelper.StopFreeDriveControlCommandResponseViewHelper stopFreeDriveControlCommandResponseViewHelper = new IotViewHelper
+                .StopFreeDriveControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+            IotViewModel.StopFreeDriveControlCommandResponseViewModel stopFreeDriveControlCommandResponseViewModel = new IotViewModel.StopFreeDriveControlCommandResponseViewModel();
+            stopFreeDriveControlCommandResponseViewModel.BreadCrumbPartialViewModelList = stopFreeDriveControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+            stopFreeDriveControlCommandResponseViewModel.StopFreeDriveControlCommandResponseModel = await stopFreeDriveControlCommandResponseViewHelper.PostStopFreeDriveControlCommandResponseModelAsync();
+            return View(stopFreeDriveControlCommandResponseViewModel);
+        }
     }
 }

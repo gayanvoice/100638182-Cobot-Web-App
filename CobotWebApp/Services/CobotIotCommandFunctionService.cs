@@ -93,5 +93,43 @@ namespace CobotWebApp.Services
                 return new PowerOffControlCommandResponseModel();
             }
         }
+        public async Task<StartFreeDriveControlCommandResponseModel?> PostStartFreeDriveControlCommandResponseModelAsync(
+           CobotIotCommandFunctionModel.RequestModel.StartFreeDriveControlCommandRequestModel startFreeDriveControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(startFreeDriveControlCommandRequestModel),
+                Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "RZuK-DJw43yDafagYgwPoLKS0e9zvZmOZcrJfki4E3fHAzFu4ZigvA==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/StartFreeDriveControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                StartFreeDriveControlCommandResponseModel? startFreeDriveControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<StartFreeDriveControlCommandResponseModel>(jsonResponse);
+                return startFreeDriveControlCommandResponseModel;
+            }
+            catch
+            {
+                return new StartFreeDriveControlCommandResponseModel();
+            }
+        }
+        public async Task<StopFreeDriveControlCommandResponseModel?> PostStopFreeDriveControlCommandResponseModelAsync(
+           CobotIotCommandFunctionModel.RequestModel.StopFreeDriveControlCommandRequestModel stopFreeDriveControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(stopFreeDriveControlCommandRequestModel),
+                Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "H3sHEAkHAy7gZlTcozc1UJgvII947DGLXTiS1D_77FvcAzFuXWi0kg==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/StopFreeDriveControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                StopFreeDriveControlCommandResponseModel? stopFreeDriveControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<StopFreeDriveControlCommandResponseModel>(jsonResponse);
+                return stopFreeDriveControlCommandResponseModel;
+            }
+            catch
+            {
+                return new StopFreeDriveControlCommandResponseModel();
+            }
+        }
     }
 }

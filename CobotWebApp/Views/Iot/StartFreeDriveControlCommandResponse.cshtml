@@ -1,4 +1,4 @@
-﻿@model CobotWebApp.Models.View.IotViewModel.PowerOffControlCommandResponseViewModel;
+﻿@model CobotWebApp.Models.View.IotViewModel.StartFreeDriveControlCommandResponseViewModel;
 
 <div class="container py-3">
     <header>
@@ -11,35 +11,34 @@
     </header>
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
-        @if (Model.PowerOffControlCommandResponseModel is not null)
+        @if (Model.StartFreeDriveControlCommandResponseModel is not null)
         {
             <div class="container" id="icon-grid">
-                @if (Model.PowerOffControlCommandResponseModel.CommandResponse is not null
-               && Model.PowerOffControlCommandResponseModel.CommandResponse.Payload is not null
-               && Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.Status is not null)
+                @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse is not null
+               && Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload is not null
+               && Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.Status is not null)
                 {
-                    if (Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_EXECUTED"))
+                    if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_EXECUTED"))
                     {
-                        <div class="h2 pb-3">Power Off Control Command Response <span class="badge text-bg-success rounded-pill">Success</span></div>
+                        <div class="h2 pb-3">Start Free Drive Control Command Response <span class="badge text-bg-success rounded-pill">Success</span></div>
                     }
-                    else if (Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_ERROR"))
+                    else if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_ERROR"))
                     {
-                        <div class="h2 pb-3">Power Off Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                        <div class="h2 pb-3">Start Free Drive Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
                     }
                     else
                     {
-                        <div class="h2 pb-3">Power Off Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                        <div class="h2 pb-3">Start Free Drive Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
                     }
-
                 }
                 else
                 {
-                    <div class="h2 pb-3">Power Off Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                    <div class="h2 pb-3">Start Free Drive Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
                 }
                 <div class="row row-cols-1 g-4 py-3">
                     <div class="col d-flex align-items-start">
                         <div>
-                            <div class="display-6 mb-0">@Model.PowerOffControlCommandResponseModel.Message</div>
+                            <div class="display-6 mb-0">@Model.StartFreeDriveControlCommandResponseModel.Message</div>
                             <div class="h5">Message</div>
                         </div>
                     </div>
@@ -47,21 +46,21 @@
                 <div class="row row-cols-2 g-4 py-3">
                     <div class="col d-flex align-items-start">
                         <div>
-                            <div class="display-6 mb-0">@Model.PowerOffControlCommandResponseModel.Duration</div>
+                            <div class="display-6 mb-0">@Model.StartFreeDriveControlCommandResponseModel.Duration</div>
                             <div class="h5">API Execution Duration</div>
                         </div>
                     </div>
-                    @if (Model.PowerOffControlCommandResponseModel.CommandResponse is not null && Model.PowerOffControlCommandResponseModel.CommandResponse.Payload is not null)
+                    @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse is not null && Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload is not null)
                     {
                         <div class="col d-flex align-items-start">
                             <div>
-                                <div class="display-6 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.Duration</div>
+                                <div class="display-6 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.Duration</div>
                                 <div class="h5">Cobot Execution Duration</div>
                             </div>
                         </div>
                     }
                 </div>
-                @if (Model.PowerOffControlCommandResponseModel.CommandResponse is not null && Model.PowerOffControlCommandResponseModel.CommandResponse.Payload is not null)
+                @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse is not null && Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload is not null)
                 {
                     <div class="row row-cols-1 g-4 py-3 border-bottom">
                         <div class="col d-flex align-items-start">
@@ -73,33 +72,33 @@
                      <div class="row row-cols-1 g-4 py-3">
                          <div class="col d-flex align-items-start">
                             <div>
-                                <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Result</div>
+                                <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Result</div>
                                 <div class="h6">Result</div>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
                             <div>
-                                <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.Status</div>
+                                <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.Status</div>
                                 <div class="h6">Status</div>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
                             <div>
-                                <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.LogText</div>
+                                <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.LogText</div>
                                 <div class="h6">Log Text</div>
                             </div>
                         </div>
-                        @if (Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotMode is not null)
+                        @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotMode is not null)
                         {
                             <div class="col d-flex align-items-start">
                                 <div>
-                                    <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotMode</div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotMode</div>
                                     <div class="h6">Robot Mode</div>
                                 </div>
                             </div>
                         }
                     </div>
-                    @if (Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotStatus is not null)
+                    @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotStatus is not null)
                     {
                         <div class="row row-cols-1 g-4 py-3">
                             <div class="col d-flex align-items-start">
@@ -111,32 +110,110 @@
                         <div class="row row-cols-4 g-4 py-3">
                             <div class="col d-flex align-items-start">
                             <div>
-                                    <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotStatus.PowerButtonPressed</div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotStatus.PowerButtonPressed</div>
                                  <div class="h6">Power Button Pressed</div>
                             </div>
                             </div>
                             <div class="col d-flex align-items-start">
                                 <div>
-                                    <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotStatus.PowerOn</div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotStatus.PowerOn</div>
                                     <div class="h6">Power On</div>
                                 </div>
                             </div>
                             <div class="col d-flex align-items-start">
                                 <div>
-                                    <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotStatus.ProgramRunning</div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotStatus.ProgramRunning</div>
                                     <div class="h6">Program Running</div>
                                 </div>
                             </div>
                             <div class="col d-flex align-items-start">
                                 <div>
-                                    <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandResponse.Payload.RobotStatus.TeachButtonPressed</div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotStatus.TeachButtonPressed</div>
                                     <div class="h6">Teach Button Pressed</div>
                                 </div>
                             </div>
                          </div>
                     }
+                    @if (Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus is not null)
+                    {
+                        <div class="row row-cols-1 g-4 py-3">
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">Robot Safety Status</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-4 g-4 py-3">
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.EmergencyStopped</div>
+                                    <div class="h6">Emergency Stopped</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.Fault</div>
+                                    <div class="h6">Fault</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.NormalMode</div>
+                                    <div class="h6">Normal Mode</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.ProtectiveStopped</div>
+                                    <div class="h6">Protective Stopped</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.RecoveryMode</div>
+                                    <div class="h6">Recovery Mode</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.ReducedMode</div>
+                                    <div class="h6">Reduced Mode</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.RobotEmergencyStopped</div>
+                                    <div class="h6">Robot Emergency Stopped</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.SafeguardStopped</div>
+                                    <div class="h6">Safeguard Stopped</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.StoppedDueToSafety</div>
+                                    <div class="h6">Stopped Due To Safety</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.SystemEmergencyStopped</div>
+                                    <div class="h6">System Emergency Stopped</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div>
+                                    <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandResponse.Payload.RobotSafetyStatus.Violation</div>
+                                    <div class="h6">Violation</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 }
-                @if (Model.PowerOffControlCommandResponseModel.CommandRequest is not null)
+                @if (Model.StartFreeDriveControlCommandResponseModel.CommandRequest is not null)
                 {
                     <div class="row row-cols-1 g-4 py-3 border-bottom">
                         <div class="col d-flex align-items-start">
@@ -148,13 +225,13 @@
                     <div class="row row-cols-2 g-4 py-3">
                         <div class="col d-flex align-items-start">
                             <div>
-                                <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandRequest.DeviceId</div>
+                                <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandRequest.DeviceId</div>
                                 <div class="h6">Device Id</div>
                             </div>
                         </div>
                         <div class="col d-flex align-items-start">
                             <div>
-                                <div class="h4 mb-0">@Model.PowerOffControlCommandResponseModel.CommandRequest.ResponseTimeout</div>
+                                <div class="h4 mb-0">@Model.StartFreeDriveControlCommandResponseModel.CommandRequest.ResponseTimeout</div>
                                 <div class="h6">Response Timeout</div>
                             </div>
                         </div>
