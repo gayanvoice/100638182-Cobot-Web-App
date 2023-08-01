@@ -14,14 +14,14 @@ namespace CobotWebApp.Controllers
     {
         private readonly ILogger<AdtController> _logger;
         private readonly IBuildDependency _buildDependency;
-        private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
+        private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
         public AdtController(ILogger<AdtController> logger,
             IBuildDependency buildDependency,
-            CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService)
+            CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService)
         {
             _logger = logger;
             _buildDependency = buildDependency;
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
 
 
         }
@@ -40,7 +40,7 @@ namespace CobotWebApp.Controllers
         {
             AdtViewModel.UploadDtdlModelViewModel uploadDtdlModelViewModel = new AdtViewModel.UploadDtdlModelViewModel();
             AdtViewHelper.UploadDtdlModelViewHelper uploadDtdlModelViewHelper = new AdtViewHelper.UploadDtdlModelViewHelper(
-                cobotAdtInitializeFunctionAppService: _cobotAdtInitializeFunctionAppService);
+                cobotAdtInitializeFunctionService: _cobotAdtInitializeFunctionService);
             uploadDtdlModelViewModel.BreadCrumbPartialViewModelList = uploadDtdlModelViewHelper.GetBreadCrumbPartialViewModelList();
             uploadDtdlModelViewModel.UploadDtdlModelResponseViewModelList = await uploadDtdlModelViewHelper.GetUploadDtdlModelResponseViewModelListAsync();
             return View(uploadDtdlModelViewModel);
@@ -49,7 +49,7 @@ namespace CobotWebApp.Controllers
         {
             AdtViewModel.DeleteAdtRelationshipViewModel deleteAdtRelationshipViewModel = new AdtViewModel.DeleteAdtRelationshipViewModel();
             AdtViewHelper.DeleteAdtRelationshipViewHelper deleteAdtRelationshipViewHelper = new AdtViewHelper.DeleteAdtRelationshipViewHelper(
-                cobotAdtInitializeFunctionAppService: _cobotAdtInitializeFunctionAppService);
+                cobotAdtInitializeFunctionService: _cobotAdtInitializeFunctionService);
             deleteAdtRelationshipViewModel.BreadCrumbPartialViewModelList = deleteAdtRelationshipViewHelper.GetBreadCrumbPartialViewModelList();
             deleteAdtRelationshipViewModel.DeleteAdtRelationshipResponseViewModelList = await deleteAdtRelationshipViewHelper.GetDeleteAdtRelationshipResponseViewModelListAsync();
             return View(deleteAdtRelationshipViewModel);
@@ -58,7 +58,7 @@ namespace CobotWebApp.Controllers
         {
             AdtViewModel.DeleteAdtModelViewModel deleteAdtModelViewModel = new AdtViewModel.DeleteAdtModelViewModel();
             AdtViewHelper.DeleteAdtModelViewHelper deleteAdtModelViewHelper = new AdtViewHelper.DeleteAdtModelViewHelper(
-                cobotAdtInitializeFunctionAppService: _cobotAdtInitializeFunctionAppService);
+                cobotAdtInitializeFunctionService: _cobotAdtInitializeFunctionService);
             deleteAdtModelViewModel.BreadCrumbPartialViewModelList = deleteAdtModelViewHelper.GetBreadCrumbPartialViewModelList();
             deleteAdtModelViewModel.DeleteAdtModelResponseViewModelList = await deleteAdtModelViewHelper.GetDeleteAdtModelResponseViewModelListAsync();
             return View(deleteAdtModelViewModel);
@@ -67,7 +67,7 @@ namespace CobotWebApp.Controllers
         {
             AdtViewModel.CreateAdtModelViewModel createAdtModelViewModel = new AdtViewModel.CreateAdtModelViewModel();
             AdtViewHelper.CreateAdtModelViewHelper createAdtModelViewHelper = new AdtViewHelper.CreateAdtModelViewHelper(
-                cobotAdtInitializeFunctionAppService: _cobotAdtInitializeFunctionAppService);
+                cobotAdtInitializeFunctionService: _cobotAdtInitializeFunctionService);
             createAdtModelViewModel.BreadCrumbPartialViewModelList = createAdtModelViewHelper.GetBreadCrumbPartialViewModelList();
             createAdtModelViewModel.CreateAdtModelResponseViewModelList = await createAdtModelViewHelper.GetCreateAdtModelResponseViewModelListAsync();
             return View(createAdtModelViewModel);
@@ -76,7 +76,7 @@ namespace CobotWebApp.Controllers
         {
             AdtViewModel.CreateAdtRelationshipViewModel createAdtRelationshipViewModel = new AdtViewModel.CreateAdtRelationshipViewModel();
             AdtViewHelper.CreateAdtRelationshipViewHelper createAdtRelationshipViewHelper = new AdtViewHelper.CreateAdtRelationshipViewHelper(
-                cobotAdtInitializeFunctionAppService: _cobotAdtInitializeFunctionAppService);
+                cobotAdtInitializeFunctionService: _cobotAdtInitializeFunctionService);
             createAdtRelationshipViewModel.BreadCrumbPartialViewModelList = createAdtRelationshipViewHelper.GetBreadCrumbPartialViewModelList();
             createAdtRelationshipViewModel.CreateAdtRelationshipResponseViewModelList = await createAdtRelationshipViewHelper.GetCreateAdtRelationshipResponseViewModelListAsync();
             return View(createAdtRelationshipViewModel);

@@ -2,11 +2,11 @@
 
 namespace CobotWebApp.Services
 {
-    public class CobotAdtInitializeFunctionAppService
+    public class CobotAdtInitializeFunctionService
     {
         private readonly HttpClient _httpClient;
 
-        public CobotAdtInitializeFunctionAppService(HttpClient httpClient)
+        public CobotAdtInitializeFunctionService(HttpClient httpClient)
         {
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri("https://100638182-cobot-adt-initialize-function-app.azurewebsites.net");

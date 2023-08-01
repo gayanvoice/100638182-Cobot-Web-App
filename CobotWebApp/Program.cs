@@ -2,7 +2,6 @@ using CobotWebApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CobotWebApp.Hubs;
-using Microsoft.DotNet.Scaffolding.Shared.ProjectModel;
 using CobotWebApp.Singleton;
 using CobotWebApp.Services;
 
@@ -20,7 +19,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddAuthorization();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IBuildDependency, BuildDependency>();
-builder.Services.AddHttpClient<CobotAdtInitializeFunctionAppService>();
+builder.Services.AddHttpClient<CobotAdtInitializeFunctionService>();
+builder.Services.AddHttpClient<CobotIotCommandFunctionService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

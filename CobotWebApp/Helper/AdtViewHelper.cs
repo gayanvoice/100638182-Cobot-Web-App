@@ -25,9 +25,9 @@ namespace CobotWebApp.Helper
         }
         public class UploadDtdlModelViewHelper
         {
-            private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
-            public UploadDtdlModelViewHelper(CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService) =>
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
+            public UploadDtdlModelViewHelper(CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService) =>
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
             public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
@@ -61,7 +61,7 @@ namespace CobotWebApp.Helper
                     in uploadDtdlModelRequestModelList)
                 {
                     CobotAdtInitializeFunctionModel.ResponseModel? responseModel =
-                       await _cobotAdtInitializeFunctionAppService.GetUploadDtdlModelResponseModelAsync(uploadDtdlModelRequestModel);
+                       await _cobotAdtInitializeFunctionService.GetUploadDtdlModelResponseModelAsync(uploadDtdlModelRequestModel);
                     if (responseModel is not null)
                     {
                         uploadDtdlModelResponseViewModelList.Add(new UploadDtdlModelResponseViewModel(
@@ -73,9 +73,9 @@ namespace CobotWebApp.Helper
         }
         public class DeleteAdtRelationshipViewHelper
         {
-            private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
-            public DeleteAdtRelationshipViewHelper(CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService) =>
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
+            public DeleteAdtRelationshipViewHelper(CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService) =>
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
             public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
@@ -116,7 +116,7 @@ namespace CobotWebApp.Helper
                 foreach (CobotAdtInitializeFunctionModel.RequestModel.DeleteAdtRelationshipRequestModel deleteAdtRelationshipRequestModel in deleteAdtRelationshipRequestModelList)
                 {
                     CobotAdtInitializeFunctionModel.ResponseModel? responseModel =
-                       await _cobotAdtInitializeFunctionAppService.GetDeleteAdtRelationshipResponseModelAsync(deleteAdtRelationshipRequestModel);
+                       await _cobotAdtInitializeFunctionService.GetDeleteAdtRelationshipResponseModelAsync(deleteAdtRelationshipRequestModel);
                     if (responseModel is not null)
                     {
                         deleteAdtRelationshipResponseViewModelList.Add(new DeleteAdtRelationshipResponseViewModel(
@@ -128,9 +128,9 @@ namespace CobotWebApp.Helper
         }
         public class DeleteAdtModelViewHelper
         {
-            private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
-            public DeleteAdtModelViewHelper(CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService) =>
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
+            public DeleteAdtModelViewHelper(CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService) =>
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
             public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
@@ -173,7 +173,7 @@ namespace CobotWebApp.Helper
                 foreach (CobotAdtInitializeFunctionModel.RequestModel.DeleteAdtModelRequestModel deleteAdtModelRequestModel in deleteAdtModelRequestModelList)
                 {
                     CobotAdtInitializeFunctionModel.ResponseModel? responseModel =
-                       await _cobotAdtInitializeFunctionAppService.GetDeleteAdtModelResponseModelAsync(deleteAdtModelRequestModel);
+                       await _cobotAdtInitializeFunctionService.GetDeleteAdtModelResponseModelAsync(deleteAdtModelRequestModel);
                     if (responseModel is not null)
                     {
                         deleteAdtModelResponseViewModelList.Add(new DeleteAdtModelResponseViewModel(
@@ -185,9 +185,9 @@ namespace CobotWebApp.Helper
         }
         public class CreateAdtModelViewHelper
         {
-            private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
-            public CreateAdtModelViewHelper(CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService) =>
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
+            public CreateAdtModelViewHelper(CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService) =>
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
             public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
@@ -230,7 +230,7 @@ namespace CobotWebApp.Helper
                 foreach (CobotAdtInitializeFunctionModel.RequestModel.CreateAdtModelRequestModel createAdtModelRequestModel in createAdtModelRequestModelList)
                 {
                     CobotAdtInitializeFunctionModel.ResponseModel? responseModel =
-                       await _cobotAdtInitializeFunctionAppService.GetCreateAdtModelResponseModelAsync(createAdtModelRequestModel);
+                       await _cobotAdtInitializeFunctionService.GetCreateAdtModelResponseModelAsync(createAdtModelRequestModel);
                     if (responseModel is not null)
                     {
                         createAdtModelResponseViewModelList.Add(new CreateAdtModelResponseViewModel(
@@ -244,9 +244,9 @@ namespace CobotWebApp.Helper
         }
         public class CreateAdtRelationshipViewHelper
         {
-            private readonly CobotAdtInitializeFunctionAppService _cobotAdtInitializeFunctionAppService;
-            public CreateAdtRelationshipViewHelper(CobotAdtInitializeFunctionAppService cobotAdtInitializeFunctionAppService) =>
-            _cobotAdtInitializeFunctionAppService = cobotAdtInitializeFunctionAppService;
+            private readonly CobotAdtInitializeFunctionService _cobotAdtInitializeFunctionService;
+            public CreateAdtRelationshipViewHelper(CobotAdtInitializeFunctionService cobotAdtInitializeFunctionService) =>
+            _cobotAdtInitializeFunctionService = cobotAdtInitializeFunctionService;
             public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
@@ -287,7 +287,7 @@ namespace CobotWebApp.Helper
                 foreach (CobotAdtInitializeFunctionModel.RequestModel.CreateAdtRelationshipRequestModel createAdtRelationshipRequestModel in createAdtRelationshipRequestModelList)
                 {
                     CobotAdtInitializeFunctionModel.ResponseModel? responseModel =
-                       await _cobotAdtInitializeFunctionAppService.GetCreateAdtRelationshipResponseModelAsync(createAdtRelationshipRequestModel);
+                       await _cobotAdtInitializeFunctionService.GetCreateAdtRelationshipResponseModelAsync(createAdtRelationshipRequestModel);
                     if (responseModel is not null)
                     {
                         createAdtRelationshipResponseViewModelList.Add(new CreateAdtRelationshipResponseViewModel(
