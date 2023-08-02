@@ -1,13 +1,10 @@
 ﻿using CobotWebApp.Helper;
-using CobotWebApp.Models;
 using CobotWebApp.Models.Request;
 using CobotWebApp.Models.View;
 using CobotWebApp.Services;
 using CobotWebApp.Singleton;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using static CobotWebApp.Models.View.IotViewModel;
 
 namespace CobotWebApp.Controllers
 {
@@ -144,7 +141,7 @@ namespace CobotWebApp.Controllers
             return View(openPopupControlCommandRequestViewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> OpenPopupControlCommandResponseAsync(OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
+        public async Task<IActionResult> OpenPopupControlCommandResponseAsync(IotViewModel.OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
         {
             if (openPopupControlCommandRequestViewModel.PopupText is not null)
             {
@@ -152,14 +149,130 @@ namespace CobotWebApp.Controllers
            .OpenPopupControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
                 IotViewModel.OpenPopupControlCommandResponseViewModel openPopupControlCommandResponseViewModel = new IotViewModel.OpenPopupControlCommandResponseViewModel();
                 openPopupControlCommandResponseViewModel.BreadCrumbPartialViewModelList = openPopupControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
-                openPopupControlCommandResponseViewModel.OpenPopupControlCommandResponseModel = await openPopupControlCommandResponseViewHelper.PostOpenPopupControlCommandResponseModelAsync(openPopupControlCommandRequestViewModel);
+                openPopupControlCommandResponseViewModel.OpenPopupControlCommandResponseModel = await openPopupControlCommandResponseViewHelper
+                    .PostOpenPopupControlCommandResponseModelAsync(openPopupControlCommandRequestViewModel);
                 return View(openPopupControlCommandResponseViewModel);
             }
             else
             {
                 return Redirect("OpenPopupControlCommandRequest");
             }
-           
+        }
+        [HttpGet]
+        public IActionResult MoveJControlCommandRequest()
+        {
+            IotViewHelper.MoveJControlCommandRequestViewHelper moveJControlCommandRequestViewHelper = new IotViewHelper.MoveJControlCommandRequestViewHelper();
+            IotViewModel.MoveJControlCommandRequestViewModel moveJControlCommandRequestViewModel = new IotViewModel.MoveJControlCommandRequestViewModel();
+            moveJControlCommandRequestViewModel.BreadCrumbPartialViewModelList = moveJControlCommandRequestViewHelper.GetBreadCrumbPartialViewModelList();
+            return View(moveJControlCommandRequestViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> MoveJControlCommandResponseAsync(IotViewModel.MoveJControlCommandRequestViewModel moveJControlCommandRequestViewModel)
+        {
+            if (moveJControlCommandRequestViewModel.Acceleration >= 0.0 &&
+                moveJControlCommandRequestViewModel.Velocity >= 0.0 &&
+                moveJControlCommandRequestViewModel.BlendRadius >= 0.0 &&
+                moveJControlCommandRequestViewModel.TimeS >= 0.0)
+            {
+                try
+                {
+                    if (moveJControlCommandRequestViewModel.JointPositionModelArray is not null)
+                    {
+                        IotViewHelper.MoveJControlCommandResponseViewHelper moveJControlCommandResponseViewHelper = new IotViewHelper.MoveJControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+                        IotViewModel.MoveJControlCommandResponseViewModel moveJControlCommandResponseViewModel = new IotViewModel.MoveJControlCommandResponseViewModel();
+                        moveJControlCommandResponseViewModel.BreadCrumbPartialViewModelList = moveJControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+                        moveJControlCommandResponseViewModel.MoveJControlCommandResponseModel = await moveJControlCommandResponseViewHelper
+                            .PostMoveJControlCommandResponseModelAsync(moveJControlCommandRequestViewModel: moveJControlCommandRequestViewModel);
+                        return View(moveJControlCommandResponseViewModel);
+                    }
+                    return Redirect("MoveJControlCommandRequest");
+                }
+                catch
+                {
+                    return Redirect("MoveJControlCommandRequest");
+                }
+            }
+            else
+            {
+                return Redirect("MoveJControlCommandRequest");
+            }
+        }
+        [HttpGet]
+        public IActionResult MoveLControlCommandRequest()
+        {
+            IotViewHelper.MoveLControlCommandRequestViewHelper moveLControlCommandRequestViewHelper = new IotViewHelper.MoveLControlCommandRequestViewHelper();
+            IotViewModel.MoveLControlCommandRequestViewModel moveLControlCommandRequestViewModel = new IotViewModel.MoveLControlCommandRequestViewModel();
+            moveLControlCommandRequestViewModel.BreadCrumbPartialViewModelList = moveLControlCommandRequestViewHelper.GetBreadCrumbPartialViewModelList();
+            return View(moveLControlCommandRequestViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> MoveLControlCommandResponseAsync(IotViewModel.MoveLControlCommandRequestViewModel moveLControlCommandRequestViewModel)
+        {
+            if (moveLControlCommandRequestViewModel.Acceleration >= 0.0 &&
+                moveLControlCommandRequestViewModel.Velocity >= 0.0 &&
+                moveLControlCommandRequestViewModel.BlendRadius >= 0.0 &&
+                moveLControlCommandRequestViewModel.TimeS >= 0.0)
+            {
+                try
+                {
+                    if (moveLControlCommandRequestViewModel.TcpPositionModelArray is not null)
+                    {
+                        IotViewHelper.MoveLControlCommandResponseViewHelper moveLControlCommandResponseViewHelper = new IotViewHelper.MoveLControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+                        IotViewModel.MoveLControlCommandResponseViewModel moveLControlCommandResponseViewModel = new IotViewModel.MoveLControlCommandResponseViewModel();
+                        moveLControlCommandResponseViewModel.BreadCrumbPartialViewModelList = moveLControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+                        moveLControlCommandResponseViewModel.MoveLControlCommandResponseModel = await moveLControlCommandResponseViewHelper
+                            .PostMoveLControlCommandResponseModelAsync(moveLControlCommandRequestViewModel: moveLControlCommandRequestViewModel);
+                        return View(moveLControlCommandResponseViewModel);
+                    }
+                    return Redirect("MoveLControlCommandRequest");
+                }
+                catch
+                {
+                    return Redirect("MoveLControlCommandRequest");
+                }
+            }
+            else
+            {
+                return Redirect("MoveLControlCommandRequest");
+            }
+        }
+        [HttpGet]
+        public IActionResult MovePControlCommandRequest()
+        {
+            IotViewHelper.MovePControlCommandRequestViewHelper movePControlCommandRequestViewHelper = new IotViewHelper.MovePControlCommandRequestViewHelper();
+            IotViewModel.MovePControlCommandRequestViewModel movePControlCommandRequestViewModel = new IotViewModel.MovePControlCommandRequestViewModel();
+            movePControlCommandRequestViewModel.BreadCrumbPartialViewModelList = movePControlCommandRequestViewHelper.GetBreadCrumbPartialViewModelList();
+            return View(movePControlCommandRequestViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> MovePControlCommandResponseAsync(IotViewModel.MovePControlCommandRequestViewModel movePControlCommandRequestViewModel)
+        {
+            if (movePControlCommandRequestViewModel.Acceleration >= 0.0 &&
+                movePControlCommandRequestViewModel.Velocity >= 0.0 &&
+                movePControlCommandRequestViewModel.BlendRadius >= 0.0)
+            {
+                try
+                {
+                    if (movePControlCommandRequestViewModel.TcpPositionModelArray is not null)
+                    {
+                        IotViewHelper.MovePControlCommandResponseViewHelper movePControlCommandResponseViewHelper = new IotViewHelper.MovePControlCommandResponseViewHelper(cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
+                        IotViewModel.MovePControlCommandResponseViewModel movePControlCommandResponseViewModel = new IotViewModel.MovePControlCommandResponseViewModel();
+                        movePControlCommandResponseViewModel.BreadCrumbPartialViewModelList = movePControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelList();
+                        movePControlCommandResponseViewModel.MovePControlCommandResponseModel = await movePControlCommandResponseViewHelper
+                            .PostMovePControlCommandResponseModelAsync(movePControlCommandRequestViewModel: movePControlCommandRequestViewModel);
+                        return View(movePControlCommandResponseViewModel);
+                    }
+                    return Redirect("MovePControlCommandRequest");
+                }
+                catch
+                {
+                    return Redirect("MovePControlCommandRequest");
+                }
+            }
+            else
+            {
+                return Redirect("MovePControlCommandRequest");
+            }
         }
     }
 }

@@ -1,0 +1,256 @@
+﻿@model CobotWebApp.Models.View.IotViewModel.MoveLControlCommandResponseViewModel;
+
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <div class="d-flex align-items-center link-body-emphasise">
+                <i class="bi bi-robot me-2" style="font-size: 2em;"></i> <span class="fs-4">Cobot Digital Twin</span>
+            </div>
+            <partial name="_LoginPartial" />
+        </div>
+    </header>
+    <main>
+        @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
+        @if (Model.MoveLControlCommandResponseModel is not null)
+        {
+            <div class="container" id="icon-grid">
+                @if (Model.MoveLControlCommandResponseModel.CommandResponse is not null
+               && Model.MoveLControlCommandResponseModel.CommandResponse.Payload is not null
+               && Model.MoveLControlCommandResponseModel.CommandResponse.Payload.Status is not null)
+                {
+                    if (Model.MoveLControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_EXECUTED"))
+                    {
+                        <div class="h2 pb-3">Move L Control Command Response <span class="badge text-bg-success rounded-pill">Success</span></div>
+                    }
+                    else if (Model.MoveLControlCommandResponseModel.CommandResponse.Payload.Status.Equals("COBOT_CLIENT_ERROR"))
+                    {
+                        <div class="h2 pb-3">Move L Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                    }
+                    else
+                    {
+                        <div class="h2 pb-3">Move L Control Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                    }
+                }
+                else
+                {
+                    <div class="h2 pb-3">Move L Command Response <span class="badge text-bg-danger rounded-pill">Error</span></div>
+                }
+                <div class="row row-cols-1 g-4 py-3">
+                    <div class="col d-flex align-items-start">
+                        <div>
+                            <div class="display-6 mb-0">@Model.MoveLControlCommandResponseModel.Message</div>
+                            <div class="h5">Message</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-2 g-4 py-3">
+                    <div class="col d-flex align-items-start">
+                        <div>
+                            <div class="display-6 mb-0">@Model.MoveLControlCommandResponseModel.Duration</div>
+                            <div class="h5">API Execution Duration</div>
+                        </div>
+                    </div>
+                    @if (Model.MoveLControlCommandResponseModel.CommandResponse is not null && Model.MoveLControlCommandResponseModel.CommandResponse.Payload is not null)
+                    {
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="display-6 mb-0">@Model.MoveLControlCommandResponseModel.CommandResponse.Payload.Duration</div>
+                                <div class="h5">Cobot Execution Duration</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @if (Model.MoveLControlCommandResponseModel.CommandResponse is not null
+               && Model.MoveLControlCommandResponseModel.CommandResponse.Payload is not null)
+                {
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Response</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row row-cols-1 g-4 py-3">
+                         <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandResponse.Result</div>
+                                <div class="h6">Result</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandResponse.Payload.Status</div>
+                                <div class="h6">Status</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandResponse.Payload.LogText</div>
+                                <div class="h6">Log Text</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (Model.MoveLControlCommandResponseModel.CommandRequest is not null)
+                {
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Request</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.DeviceId</div>
+                                <div class="h6">Device Id</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.ResponseTimeout</div>
+                                <div class="h6">Response Timeout</div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                }
+                @if (Model.MoveLControlCommandResponseModel.CommandRequest is not null &&
+               Model.MoveLControlCommandResponseModel.CommandRequest.Payload is not null)
+                 {
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Payload</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.Payload.Acceleration</div>
+                                <div class="h6">Acceleration</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.Payload.Velocity</div>
+                                <div class="h6">Velocity</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.Payload.TimeS</div>
+                                <div class="h6">Time S</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0">@Model.MoveLControlCommandResponseModel.CommandRequest.Payload.BlendRadius</div>
+                                <div class="h6">Blend Radius</div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.MoveLControlCommandResponseModel.CommandRequest.Payload.TcpPositionModelArray is not null)
+                    {
+                        int index = 0;
+                        foreach (CobotWebApp.Models.Request.CobotIotCommandFunctionModel.ResponseModel
+                        .MoveLControlCommandResponseModel.CommandRequestModel.PayloadModel.TcpPositionModelArrayItem tcpPositionModelArrayItem
+                        in Model.MoveLControlCommandResponseModel.CommandRequest.Payload.TcpPositionModelArray)
+                        {
+                            if (tcpPositionModelArrayItem.TcpPositionModel is not null)
+                            {
+                                index++;
+                                <div class="row row-cols-1 g-4 py-3">
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">Tcp Postion Model @index</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-3 g-4 py-3">
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.X</div>
+                                            <div class="h6">X</div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.Y</div>
+                                            <div class="h6">Y</div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.Z</div>
+                                            <div class="h6">Z</div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.Rx</div>
+                                            <div class="h6">Rx</div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.Ry</div>
+                                            <div class="h6">Ry</div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-start">
+                                        <div>
+                                            <div class="h4 mb-0">@tcpPositionModelArrayItem.TcpPositionModel.Rz</div>
+                                            <div class="h6">Rz</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            </div>
+        }
+        else
+        {
+              <div class="container" id="icon-grid">
+                    <div class="pb-3">Close Safety Popup Control Command Response Not Available</div>
+              </div>
+        }
+        <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Iot" asp-action="Dashboard">Back</a>
+    </main>
+</div>
+
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .icon-link > .bi {
+            width: .75em;
+            height: .75em;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+        <symbol id="house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+        </symbol>
+    </svg>
+}
+@section Scripts{
+}

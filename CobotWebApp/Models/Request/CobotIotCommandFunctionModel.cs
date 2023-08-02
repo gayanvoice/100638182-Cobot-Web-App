@@ -69,6 +69,86 @@
                     public string? PopupText { get; set; }
                 }
             }
+            public class MoveJControlCommandRequestModel
+            {
+                 public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public double Acceleration { get; set; }
+                        public double Velocity { get; set; }
+                        public double TimeS { get; set; }
+                        public double BlendRadius { get; set; }
+                        public List<JointPositionModelArrayItem>? JointPositionModelArray { get; set; }
+                        public class JointPositionModelArrayItem
+                        {
+                            public JointPositionModel? JointPositionModel { get; set; }
+                        }
+                        public class JointPositionModel
+                        {
+                            public double Base { get; set; }
+                            public double Shoulder { get; set; }
+                            public double Elbow { get; set; }
+                            public double Wrist1 { get; set; }
+                            public double Wrist2 { get; set; }
+                            public double Wrist3 { get; set; }
+                        }
+                    }
+            }
+            public class MoveLControlCommandRequestModel
+            {
+                public string? DeviceId { get; set; }
+                public double ResponseTimeout { get; set; } = 20.0;
+                public PayloadModel? Payload { get; set; }
+                public class PayloadModel
+                {
+                    public double Acceleration { get; set; }
+                    public double Velocity { get; set; }
+                    public double TimeS { get; set; }
+                    public double BlendRadius { get; set; }
+                    public List<TcpPositionModelArrayItem>? TcpPositionModelArray { get; set; }
+                    public class TcpPositionModelArrayItem
+                    {
+                        public TcpPositionModel? TcpPositionModel { get; set; }
+                    }
+                    public class TcpPositionModel
+                    {
+                        public double X { get; set; }
+                        public double Y { get; set; }
+                        public double Z { get; set; }
+                        public double Rx { get; set; }
+                        public double Ry { get; set; }
+                        public double Rz { get; set; }
+                    }
+                }
+            }
+            public class MovePControlCommandRequestModel
+            {
+                public string? DeviceId { get; set; }
+                public double ResponseTimeout { get; set; } = 20.0;
+                public PayloadModel? Payload { get; set; }
+                public class PayloadModel
+                {
+                    public double Acceleration { get; set; }
+                    public double Velocity { get; set; }
+                    public double BlendRadius { get; set; }
+                    public List<TcpPositionModelArrayItem>? TcpPositionModelArray { get; set; }
+                    public class TcpPositionModelArrayItem
+                    {
+                        public TcpPositionModel? TcpPositionModel { get; set; }
+                    }
+                    public class TcpPositionModel
+                    {
+                        public double X { get; set; }
+                        public double Y { get; set; }
+                        public double Z { get; set; }
+                        public double Rx { get; set; }
+                        public double Ry { get; set; }
+                        public double Rz { get; set; }
+                    }
+                }
+            }
         }
         public class ResponseModel
         {
@@ -472,6 +552,140 @@
                     public class PayloadModel
                     {
                         public string? PopupText { get; set; }
+                    }
+                }
+                public class CommandResponseModel
+                {
+                    public double Result { get; set; }
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? Status { get; set; }
+                        public string? LogText { get; set; }
+                        public double Duration { get; set; }
+                    }
+                }
+            }
+            public class MoveJControlCommandResponseModel
+            {
+                public string? Message { get; set; }
+                public double Duration { get; set; }
+                public CommandResponseModel? CommandResponse { get; set; }
+                public CommandRequestModel? CommandRequest { get; set; }
+                public class CommandRequestModel
+                {
+                    public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public double Acceleration { get; set; }
+                        public double Velocity { get; set; }
+                        public double TimeS { get; set; }
+                        public double BlendRadius { get; set; }
+                        public List<JointPositionModelArrayItem>? JointPositionModelArray { get; set; }
+                        public class JointPositionModelArrayItem
+                        {
+                            public JointPositionModel? JointPositionModel { get; set; }
+                        }
+                        public class JointPositionModel
+                        {
+                            public double Base { get; set; }
+                            public double Shoulder { get; set; }
+                            public double Elbow { get; set; }
+                            public double Wrist1 { get; set; }
+                            public double Wrist2 { get; set; }
+                            public double Wrist3 { get; set; }
+                        }
+                    }
+                }
+                public class CommandResponseModel
+                {
+                    public double Result { get; set; }
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? Status { get; set; }
+                        public string? LogText { get; set; }
+                        public double Duration { get; set; }
+                    }
+                }
+            }
+            public class MoveLControlCommandResponseModel
+            {
+                public string? Message { get; set; }
+                public double Duration { get; set; }
+                public CommandResponseModel? CommandResponse { get; set; }
+                public CommandRequestModel? CommandRequest { get; set; }
+                public class CommandRequestModel
+                {
+                    public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public double Acceleration { get; set; }
+                        public double Velocity { get; set; }
+                        public double TimeS { get; set; }
+                        public double BlendRadius { get; set; }
+                        public List<TcpPositionModelArrayItem>? TcpPositionModelArray { get; set; }
+                        public class TcpPositionModelArrayItem
+                        {
+                            public TcpPositionModel? TcpPositionModel { get; set; }
+                        }
+                        public class TcpPositionModel
+                        {
+                            public double X { get; set; }
+                            public double Y { get; set; }
+                            public double Z { get; set; }
+                            public double Rx { get; set; }
+                            public double Ry { get; set; }
+                            public double Rz { get; set; }
+                        }
+                    }
+                }
+                public class CommandResponseModel
+                {
+                    public double Result { get; set; }
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? Status { get; set; }
+                        public string? LogText { get; set; }
+                        public double Duration { get; set; }
+                    }
+                }
+            }
+            public class MovePControlCommandResponseModel
+            {
+                public string? Message { get; set; }
+                public double Duration { get; set; }
+                public CommandResponseModel? CommandResponse { get; set; }
+                public CommandRequestModel? CommandRequest { get; set; }
+                public class CommandRequestModel
+                {
+                    public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public double Acceleration { get; set; }
+                        public double Velocity { get; set; }
+                        public double BlendRadius { get; set; }
+                        public List<TcpPositionModelArrayItem>? TcpPositionModelArray { get; set; }
+                        public class TcpPositionModelArrayItem
+                        {
+                            public TcpPositionModel? TcpPositionModel { get; set; }
+                        }
+                        public class TcpPositionModel
+                        {
+                            public double X { get; set; }
+                            public double Y { get; set; }
+                            public double Z { get; set; }
+                            public double Rx { get; set; }
+                            public double Ry { get; set; }
+                            public double Rz { get; set; }
+                        }
                     }
                 }
                 public class CommandResponseModel

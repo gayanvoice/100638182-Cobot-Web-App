@@ -237,5 +237,59 @@ namespace CobotWebApp.Services
                 return new OpenPopupControlCommandResponseModel();
             }
         }
+        public async Task<MoveJControlCommandResponseModel?> PostMoveJControlCommandResponseModelAsync(
+         CobotIotCommandFunctionModel.RequestModel.MoveJControlCommandRequestModel moveJControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(moveJControlCommandRequestModel), Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "Bj8YgnNUyj9mYo2a3trdKgKRHygM2tRoq_jVPpchAlEeAzFugbZzrg==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/MoveJControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                MoveJControlCommandResponseModel? moveJControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<MoveJControlCommandResponseModel>(jsonResponse);
+                return moveJControlCommandResponseModel;
+            }
+            catch
+            {
+                return new MoveJControlCommandResponseModel();
+            }
+        }
+        public async Task<MoveLControlCommandResponseModel?> PostMoveLControlCommandResponseModelAsync(
+         CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel moveLControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(moveLControlCommandRequestModel), Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "YDgIU-WMAQmtET3mgAWRC1qfabKHIzTWqTReUeIHNPrYAzFugqVgZQ==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/MoveLControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                MoveLControlCommandResponseModel? moveLControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<MoveLControlCommandResponseModel>(jsonResponse);
+                return moveLControlCommandResponseModel;
+            }
+            catch
+            {
+                return new MoveLControlCommandResponseModel();
+            }
+        }
+        public async Task<MovePControlCommandResponseModel?> PostMovePControlCommandResponseModelAsync(
+         CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel movePControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(movePControlCommandRequestModel), Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Add("x-functions-key", "uEOHC6z99Ise7BPWumtdlJQ3adH1v-btH00T65PX4CV8AzFuodHyiA==");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/MovePControlCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                MovePControlCommandResponseModel? movePControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<MovePControlCommandResponseModel>(jsonResponse);
+                return movePControlCommandResponseModel;
+            }
+            catch
+            {
+                return new MovePControlCommandResponseModel();
+            }
+        }
     }
 }

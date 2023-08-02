@@ -1,6 +1,7 @@
 using CobotWebApp.Models.Request;
 using CobotWebApp.Models.View.Partial;
 using System.ComponentModel.DataAnnotations;
+using static CobotWebApp.Models.Request.CobotIotCommandFunctionModel.RequestModel;
 
 namespace CobotWebApp.Models.View
 {
@@ -68,14 +69,68 @@ namespace CobotWebApp.Models.View
         public class OpenPopupControlCommandRequestViewModel
         {
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
-            [Required]
-            [Display(Name = "Popup Text")]
+            [Display(Name = "Acceleration")]
             public string? PopupText { get; set; }
         }
         public class OpenPopupControlCommandResponseViewModel
         {
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
             public CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel? OpenPopupControlCommandResponseModel { get; set; }
+        }
+        public class MoveJControlCommandRequestViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            [Display(Name = "Acceleration")]
+            public double Acceleration { get; set; }
+            [Display(Name = "Velocity")]
+            public double Velocity { get; set; }
+            [Display(Name = "Blend Radius")]
+            public double BlendRadius { get; set; }
+            [Display(Name = "Time S")]
+            public double TimeS { get; set; }
+            [Display(Name = "Joint Position Array")]
+            public string? JointPositionModelArray { get; set; }
+        }
+        public class MoveJControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.MoveJControlCommandResponseModel? MoveJControlCommandResponseModel { get; set; }
+        }
+        public class MoveLControlCommandRequestViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            [Display(Name = "Acceleration")]
+            public double Acceleration { get; set; }
+            [Display(Name = "Velocity")]
+            public double Velocity { get; set; }
+            [Display(Name = "Blend Radius")]
+            public double BlendRadius { get; set; }
+            [Display(Name = "Time S")]
+            public double TimeS { get; set; }
+            [Display(Name = "Tcp Position Array")]
+            public string? TcpPositionModelArray { get; set; }
+        }
+        public class MoveLControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.MoveLControlCommandResponseModel? MoveLControlCommandResponseModel { get; set; }
+        }
+        public class MovePControlCommandRequestViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            [Display(Name = "Acceleration")]
+            public double Acceleration { get; set; }
+            [Display(Name = "Velocity")]
+            public double Velocity { get; set; }
+            [Display(Name = "Blend Radius")]
+            public double BlendRadius { get; set; }
+            [Display(Name = "Tcp Position Array")]
+            public string? TcpPositionModelArray { get; set; }
+        }
+        public class MovePControlCommandResponseViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+            public CobotIotCommandFunctionModel.ResponseModel.MovePControlCommandResponseModel? MovePControlCommandResponseModel { get; set; }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using CobotWebApp.Models.Request;
+using CobotWebApp.Models.View;
 using CobotWebApp.Models.View.Partial;
 using CobotWebApp.Services;
-using static CobotWebApp.Models.View.IotViewModel;
 
 namespace CobotWebApp.Helper
 {
@@ -332,7 +332,8 @@ namespace CobotWebApp.Helper
                 };
                 return breadCrumbPartialViewModelList;
             }
-            public async Task<CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel?> PostOpenPopupControlCommandResponseModelAsync(OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel?> PostOpenPopupControlCommandResponseModelAsync(
+                IotViewModel.OpenPopupControlCommandRequestViewModel openPopupControlCommandRequestViewModel)
             {
                 CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel openPopupControlCommandRequestModel =
                     new CobotIotCommandFunctionModel.RequestModel.OpenPopupControlCommandRequestModel();
@@ -344,6 +345,163 @@ namespace CobotWebApp.Helper
                 CobotIotCommandFunctionModel.ResponseModel.OpenPopupControlCommandResponseModel? closePopupControlCommandResponseModel = await _cobotIotCommandFunctionService
                     .PostOpenPopupControlCommandResponseModelAsync(openPopupControlCommandRequestModel: openPopupControlCommandRequestModel);
                 return closePopupControlCommandResponseModel;
+            }
+        }
+        public class MoveJControlCommandRequestViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move J Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
+        public class MoveJControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public MoveJControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move J Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.MoveJControlCommandResponseModel?> PostMoveJControlCommandResponseModelAsync(
+                IotViewModel.MoveJControlCommandRequestViewModel moveJControlCommandRequestViewModel)
+            {
+                
+                CobotIotCommandFunctionModel.RequestModel.MoveJControlCommandRequestModel moveJControlCommandRequestModel = new CobotIotCommandFunctionModel
+                    .RequestModel.MoveJControlCommandRequestModel();
+                CobotIotCommandFunctionModel.RequestModel.MoveJControlCommandRequestModel.PayloadModel payloadModel = new CobotIotCommandFunctionModel
+                    .RequestModel.MoveJControlCommandRequestModel.PayloadModel();
+                if (moveJControlCommandRequestViewModel.JointPositionModelArray is not null)
+                {
+                    payloadModel.Acceleration = moveJControlCommandRequestViewModel.Acceleration;
+                    payloadModel.Velocity = moveJControlCommandRequestViewModel.Velocity;
+                    payloadModel.BlendRadius = moveJControlCommandRequestViewModel.BlendRadius;
+                    payloadModel.TimeS = moveJControlCommandRequestViewModel.TimeS;
+                    payloadModel.JointPositionModelArray = Newtonsoft.Json.JsonConvert
+                        .DeserializeObject<List<CobotIotCommandFunctionModel.RequestModel.MoveJControlCommandRequestModel
+                        .PayloadModel.JointPositionModelArrayItem>>(moveJControlCommandRequestViewModel.JointPositionModelArray);
+                }
+                moveJControlCommandRequestModel.DeviceId = "Cobot";
+                moveJControlCommandRequestModel.ResponseTimeout = 20;
+                moveJControlCommandRequestModel.Payload = payloadModel;
+                CobotIotCommandFunctionModel.ResponseModel.MoveJControlCommandResponseModel? moveJControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostMoveJControlCommandResponseModelAsync(moveJControlCommandRequestModel: moveJControlCommandRequestModel);
+                return moveJControlCommandResponseModel;
+            }
+        }
+        public class MoveLControlCommandRequestViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move L Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
+        public class MoveLControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public MoveLControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move L Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.MoveLControlCommandResponseModel?> PostMoveLControlCommandResponseModelAsync(
+                IotViewModel.MoveLControlCommandRequestViewModel moveLControlCommandRequestViewModel)
+            {
+
+                CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel moveLControlCommandRequestModel = new CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel();
+                CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel.PayloadModel payloadModel = new CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel.PayloadModel();
+                if (moveLControlCommandRequestViewModel.TcpPositionModelArray is not null)
+                {
+                    payloadModel.Acceleration = moveLControlCommandRequestViewModel.Acceleration;
+                    payloadModel.Velocity = moveLControlCommandRequestViewModel.Velocity;
+                    payloadModel.BlendRadius = moveLControlCommandRequestViewModel.BlendRadius;
+                    payloadModel.TimeS = moveLControlCommandRequestViewModel.TimeS;
+                    payloadModel.TcpPositionModelArray = Newtonsoft.Json.JsonConvert
+                        .DeserializeObject<List<CobotIotCommandFunctionModel.RequestModel.MoveLControlCommandRequestModel
+                        .PayloadModel.TcpPositionModelArrayItem>>(moveLControlCommandRequestViewModel.TcpPositionModelArray);
+                }
+                moveLControlCommandRequestModel.DeviceId = "Cobot";
+                moveLControlCommandRequestModel.ResponseTimeout = 20;
+                moveLControlCommandRequestModel.Payload = payloadModel;
+                CobotIotCommandFunctionModel.ResponseModel.MoveLControlCommandResponseModel? moveLControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostMoveLControlCommandResponseModelAsync(moveLControlCommandRequestModel: moveLControlCommandRequestModel);
+                return moveLControlCommandResponseModel;
+            }
+        }
+        public class MovePControlCommandRequestViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move P Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
+        public class MovePControlCommandResponseViewHelper
+        {
+            private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
+            public MovePControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
+            _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelList()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Iot Dashboard", aspController:"Iot", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Move P Control Command")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+            public async Task<CobotIotCommandFunctionModel.ResponseModel.MovePControlCommandResponseModel?> PostMovePControlCommandResponseModelAsync(
+                IotViewModel.MovePControlCommandRequestViewModel movePControlCommandRequestViewModel)
+            {
+
+                CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel movePControlCommandRequestModel = new CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel();
+                CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel.PayloadModel payloadModel = new CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel.PayloadModel();
+                if (movePControlCommandRequestViewModel.TcpPositionModelArray is not null)
+                {
+                    payloadModel.Acceleration = movePControlCommandRequestViewModel.Acceleration;
+                    payloadModel.Velocity = movePControlCommandRequestViewModel.Velocity;
+                    payloadModel.BlendRadius = movePControlCommandRequestViewModel.BlendRadius;
+                    payloadModel.TcpPositionModelArray = Newtonsoft.Json.JsonConvert
+                        .DeserializeObject<List<CobotIotCommandFunctionModel.RequestModel.MovePControlCommandRequestModel
+                        .PayloadModel.TcpPositionModelArrayItem>>(movePControlCommandRequestViewModel.TcpPositionModelArray);
+                }
+                movePControlCommandRequestModel.DeviceId = "Cobot";
+                movePControlCommandRequestModel.ResponseTimeout = 20;
+                movePControlCommandRequestModel.Payload = payloadModel;
+                CobotIotCommandFunctionModel.ResponseModel.MovePControlCommandResponseModel? movePControlCommandResponseModel = await _cobotIotCommandFunctionService
+                    .PostMovePControlCommandResponseModelAsync(movePControlCommandRequestModel: movePControlCommandRequestModel);
+                return movePControlCommandResponseModel;
             }
         }
     }
