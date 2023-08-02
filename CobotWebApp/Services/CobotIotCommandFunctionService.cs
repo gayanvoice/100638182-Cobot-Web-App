@@ -291,5 +291,39 @@ namespace CobotWebApp.Services
                 return new MovePControlCommandResponseModel();
             }
         }
+        public async Task<StartIotControlCommandResponseModel?> PostStartIotControlCommandResponseModelAsync(
+         CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel startIotControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(startIotControlCommandRequestModel), Encoding.UTF8, "application/json");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/StartIotCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                StartIotControlCommandResponseModel? startIotControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<StartIotControlCommandResponseModel>(jsonResponse);
+                return startIotControlCommandResponseModel;
+            }
+            catch
+            {
+                return new StartIotControlCommandResponseModel();
+            }
+        }
+        public async Task<StopIotControlCommandResponseModel?> PostStopIotControlCommandResponseModelAsync(
+        CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel stopIotControlCommandRequestModel)
+        {
+            using StringContent jsonContent = new(System.Text.Json.JsonSerializer.Serialize(stopIotControlCommandRequestModel), Encoding.UTF8, "application/json");
+            using HttpResponseMessage response = await _httpClient.PostAsync("/api/StopIotCommandFunction", jsonContent);
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            try
+            {
+                StopIotControlCommandResponseModel? stopIotControlCommandResponseModel = JsonConvert
+                    .DeserializeObject<StopIotControlCommandResponseModel>(jsonResponse);
+                return stopIotControlCommandResponseModel;
+            }
+            catch
+            {
+                return new StopIotControlCommandResponseModel();
+            }
+        }
     }
 }

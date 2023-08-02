@@ -149,6 +149,26 @@
                     }
                 }
             }
+            public class StartIotControlCommandRequestModel
+            {
+                public StartIotControlCommandRequestModel(string deviceId, double responseTimeout)
+                {
+                    this.DeviceId = deviceId;
+                    this.ResponseTimeout = responseTimeout;
+                }
+                public string? DeviceId { get; set; }
+                public double ResponseTimeout { get; set; }
+            }
+            public class StopIotControlCommandRequestModel
+            {
+                public StopIotControlCommandRequestModel(string deviceId, double responseTimeout)
+                {
+                    this.DeviceId = deviceId;
+                    this.ResponseTimeout = responseTimeout;
+                }
+                public string? DeviceId { get; set; }
+                public double ResponseTimeout { get; set; }
+            }
         }
         public class ResponseModel
         {
@@ -687,6 +707,52 @@
                             public double Rz { get; set; }
                         }
                     }
+                }
+                public class CommandResponseModel
+                {
+                    public double Result { get; set; }
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? Status { get; set; }
+                        public string? LogText { get; set; }
+                        public double Duration { get; set; }
+                    }
+                }
+            }
+            public class StartIotControlCommandResponseModel
+            {
+                public string? Message { get; set; }
+                public double Duration { get; set; }
+                public CommandResponseModel? CommandResponse { get; set; }
+                public CommandRequestModel? CommandRequest { get; set; }
+                public class CommandRequestModel
+                {
+                    public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
+                }
+                public class CommandResponseModel
+                {
+                    public double Result { get; set; }
+                    public PayloadModel? Payload { get; set; }
+                    public class PayloadModel
+                    {
+                        public string? Status { get; set; }
+                        public string? LogText { get; set; }
+                        public double Duration { get; set; }
+                    }
+                }
+            }
+            public class StopIotControlCommandResponseModel
+            {
+                public string? Message { get; set; }
+                public double Duration { get; set; }
+                public CommandResponseModel? CommandResponse { get; set; }
+                public CommandRequestModel? CommandRequest { get; set; }
+                public class CommandRequestModel
+                {
+                    public string? DeviceId { get; set; }
+                    public double ResponseTimeout { get; set; } = 20.0;
                 }
                 public class CommandResponseModel
                 {
