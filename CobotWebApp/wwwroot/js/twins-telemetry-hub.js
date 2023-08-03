@@ -111,6 +111,7 @@ twinsHubConnection.on("TwinsTelemetryResponse", function (message) {
 function invokeTwinsTelemetryTask() {
     twinsTelemetrySpinner.style.display = 'block';
     twinsHubConnection.invoke("TwinsTelemetryTask").catch(function (err) {
+        console.log(err.toString());
         cobotElapsedTimeDiv.innerHTML = "Error";
 
         controlBoxVoltageDiv.innerHTML = "Error";
@@ -137,15 +138,15 @@ function invokeTwinsTelemetryTask() {
         elbowZDiv.innerHTML = "Error";
 
         wrist1PositionDiv.innerHTML = "Error";
-        wrist1TempeatureDiv.innerHTML = "Error";
+        wrist1TemperatureDiv.innerHTML = "Error";
         wrist1VoltageDiv.innerHTML = "Error";
 
         wrist2PositionDiv.innerHTML = "Error";
-        wrist2TempeatureDiv.innerHTML = "Error";
+        wrist2TemperatureDiv.innerHTML = "Error";
         wrist2VoltageDiv.innerHTML = "Error";
 
         wrist3PositionDiv.innerHTML = "Error";
-        wrist3TempeatureDiv.innerHTML = "Error";
+        wrist3TemperatureDiv.innerHTML = "Error";
         wrist3VoltageDiv.innerHTML = "Error";
 
         toolTemperatureDiv.innerHTML = "Error";
