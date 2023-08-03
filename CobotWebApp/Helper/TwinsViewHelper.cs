@@ -116,5 +116,18 @@ namespace CobotWebApp.Helper
                 return breadCrumbPartialViewModelList;
             }
         }
+        public class TwinsSimulationCommandResponseViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Twins Dashboard", aspController:"Twins", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Twins Simulation")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
     }
 }

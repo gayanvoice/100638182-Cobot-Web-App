@@ -23,5 +23,9 @@ namespace CobotWebApp.Models.View
         {
             public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
         }
+        public class TwinsSimulationViewModel
+        {
+            public List<BreadCrumbPartialViewModel>? BreadCrumbPartialViewModelList { get; set; }
+        }
     }
 }

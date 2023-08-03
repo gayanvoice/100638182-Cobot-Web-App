@@ -63,26 +63,13 @@ namespace CobotWebApp.Controllers
             twinsTelemetryCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsTelemetryCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
             return View(twinsTelemetryCommandResponseViewModel);
         }
-        public async Task<Response<BasicDigitalTwin>> PrimaryTwinAsync()
+        public IActionResult TwinsSimulationAsync()
         {
-            string? adtInstanceUrl = "https://100638182AzureDigitalTwins.api.uks.digitaltwins.azure.net";
-            DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeEnvironmentCredential = true });
-            DigitalTwinsClient digitalTwinsClient = new DigitalTwinsClient(new Uri(adtInstanceUrl), defaultAzureCredential);
-            Response<BasicDigitalTwin> twinResponse = await digitalTwinsClient.GetDigitalTwinAsync<BasicDigitalTwin>("Cobot");
-            BasicDigitalTwin  basicDigitalTwin = twinResponse.Value;
-            Console.WriteLine($"Model id: {basicDigitalTwin.Metadata.ModelId}");
-            foreach (string prop in basicDigitalTwin.Contents.Keys)
-            {
-                if (basicDigitalTwin.Contents.TryGetValue(prop, out object value))
-                    Console.WriteLine($"Property '{prop}': {value}");
-            }
-            return twinResponse;
+            TwinsViewModel.TwinsSimulationViewModel twinsSimulationCommandResponseViewModel = new TwinsViewModel.TwinsSimulationViewModel();
+            TwinsViewHelper.TwinsSimulationCommandResponseViewHelper twinsSimulationCommandResponseViewHelper = new TwinsViewHelper.TwinsSimulationCommandResponseViewHelper();
+            twinsSimulationCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsSimulationCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            return View(twinsSimulationCommandResponseViewModel);
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        
+
     }
 }
