@@ -12,7 +12,16 @@
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
         <div class="container" id="icon-grid">
-            <h2 class="py-3">Twins Telemetry</h2>
+            <div class="h2 py-3 d-flex flex-row" id="twinsTelemetryTitle">
+                <div class="pe-2">
+                    <span>Twins Telemetry</span> (<span id="twinsTelemetryElapsedSpan">Loading</span><small class="text-body-secondary fw-light">/ms</small>)
+                </div>
+                <div>
+                     <span class="spinner-border text-primary" id="twinsTelemetrySpinner" style="display: block" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+               </div>
+            </div>
             <div class="row row-cols-1 g-4 py-3 border-bottom">
                 <div class="col d-flex align-items-start">
                     <div>
@@ -23,7 +32,7 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="cobotElapedTime">31839.113999999998</div>
+                        <div class="h4 mb-0" id="cobotElapsedTimeDiv">null</div>
                         <div class="h6">Elapsed Time</div>
                     </div>
                 </div>
@@ -31,14 +40,14 @@
             <div class="row row-cols-1 g-4 py-3 border-bottom">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h3 mb-0">Cobot</div>
+                        <div class="h3 mb-0">Control Box</div>
                     </div>
                 </div>
             </div>
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="controlBoxVoltage">48</div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -53,25 +62,25 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="payloadCogX">0</div>
+                        <div class="h4 mb-0" id="payloadCogXDiv">null</div>
                         <div class="h6">CogX</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="payloadCogY">0</div>
+                        <div class="h4 mb-0" id="payloadCogYDiv">null</div>
                         <div class="h6">CogY</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="payloadCogZ">0</div>
+                        <div class="h4 mb-0" id="payloadCogZDiv">null</div>
                         <div class="h6">CogZ</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="payloadMass">5</div>
+                        <div class="h4 mb-0" id="payloadMassDiv">null</div>
                         <div class="h6">Mass</div>
                     </div>
                 </div>
@@ -86,19 +95,19 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="basePosition">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="basePositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="baseTemperature">25.5</div>
+                        <div class="h4 mb-0" id="baseTemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="baseVoltage">0</div>
+                        <div class="h4 mb-0" id="baseVoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -113,19 +122,19 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="shoulderPosition">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="shoulderPositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="shoulderTemperature">25.5</div>
+                        <div class="h4 mb-0" id="shoulderTemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="shoulderVoltage">0</div>
+                        <div class="h4 mb-0" id="shoulderVoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -140,37 +149,37 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowPosition">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="elbowPositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowTemperature">25.5</div>
+                        <div class="h4 mb-0" id="elbowTemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowVoltage">0</div>
+                        <div class="h4 mb-0" id="elbowVoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowX">0</div>
+                        <div class="h4 mb-0" id="elbowXDiv">null</div>
                         <div class="h6">X</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowY">0</div>
+                        <div class="h4 mb-0" id="elbowYDiv">null</div>
                         <div class="h6">Y</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="elbowZ">0</div>
+                        <div class="h4 mb-0" id="elbowZDiv">null</div>
                         <div class="h6">Z</div>
                     </div>
                 </div>
@@ -185,19 +194,19 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist1Position">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="wrist1PositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist1Temperature">25.5</div>
+                        <div class="h4 mb-0" id="wrist1TemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist1Voltage">0</div>
+                        <div class="h4 mb-0" id="wrist1VoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -212,19 +221,19 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist2Position">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="wrist2PositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist2Temperature">25.5</div>
+                        <div class="h4 mb-0" id="wrist2TemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist2Voltage">0</div>
+                        <div class="h4 mb-0" id="wrist2VoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -239,19 +248,19 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist3Position">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="wrist3PositionDiv">null</div>
                         <div class="h6">Position</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist3Temperature">25.5</div>
+                        <div class="h4 mb-0" id="wrist3TemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="wrist3Voltage">0</div>
+                        <div class="h4 mb-0" id="wrist3VoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
@@ -266,49 +275,49 @@
             <div class="row row-cols-3 g-4 py-3">
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolTemperature">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="toolTemperatureDiv">null</div>
                         <div class="h6">Temperature</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolVoltage">25.5</div>
+                        <div class="h4 mb-0" id="toolVoltageDiv">null</div>
                         <div class="h6">Voltage</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRx">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="toolRxDiv">null</div>
                         <div class="h6">Rx</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRy">25.5</div>
+                        <div class="h4 mb-0" id="toolRyDiv">null</div>
                         <div class="h6">Ry</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRz">0</div>
+                        <div class="h4 mb-0" id="toolRzDiv">null</div>
                         <div class="h6">Rz</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRx">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="toolXDiv">null</div>
                         <div class="h6">X</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRy">25.5</div>
+                        <div class="h4 mb-0" id="toolYDiv">null</div>
                         <div class="h6">Y</div>
                     </div>
                 </div>
                 <div class="col d-flex align-items-start">
                     <div>
-                        <div class="h4 mb-0" id="toolRz">-5.96442076925945</div>
+                        <div class="h4 mb-0" id="toolZDiv">null</div>
                         <div class="h6">Z</div>
                     </div>
                 </div>
@@ -317,8 +326,6 @@
         </div>
     </main>
 </div>
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="/js/twins-telemetry-hub.js"></script>
 @section CSS{
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
@@ -349,5 +356,6 @@
     </svg>
 }
 @section Scripts{
-
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="/js/twins-telemetry-hub.js"></script>
 }

@@ -1,32 +1,69 @@
-﻿using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using Azure;
-using CobotWebApp.Models;
-using CobotWebApp.Models.HttpResponse;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using System.Text.Json;
+using CobotWebApp.Helper;
+using CobotWebApp.Models.Hub;
+using System.Diagnostics;
 
 namespace CobotWebApp.Hubs
 {
     [Authorize]
     public class TwinsHub : Hub
     {
-       
-        public async Task UploadCobot()
+        public async Task TwinsTelemetryTask()
         {
-            string? adtInstanceUrl = "https://100638182AzureDigitalTwins.api.uks.digitaltwins.azure.net";
-            DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeEnvironmentCredential = true });
-            DigitalTwinsClient digitalTwinsClient = new DigitalTwinsClient(new Uri(adtInstanceUrl), defaultAzureCredential);
-            Response<BasicDigitalTwin> twinResponse = await digitalTwinsClient.GetDigitalTwinAsync<BasicDigitalTwin>("Cobot");
-            BasicDigitalTwin basicDigitalTwin = twinResponse.Value;
-            Console.WriteLine($"Model id: {basicDigitalTwin.Metadata.ModelId}");
-            foreach (string prop in basicDigitalTwin.Contents.Keys)
-            {
-                if (basicDigitalTwin.Contents.TryGetValue(prop, out object value))
-                    Console.WriteLine($"Property '{prop}': {value}");
-            }
-            await Clients.All.SendAsync("ReceiveUploadCobotMessage", JsonSerializer.Serialize("basicDigitalTwin"));
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Task<CobotTwinHubModel?> cobotTwinHubModelTask = TwinsHubHelper.GetCobotTwinHubModel();
+            Task<ControlBoxTwinHubModel?> controlBoxTwinHubModelTask = TwinsHubHelper.GetControlBoxTwinHubModel();
+            Task<PayloadTwinHubModel?> payloadTwinHubModelTask = TwinsHubHelper.GetPayloadTwinHubModel();
+            Task<BaseTwinHubModel?> baseTwinHubModelTask = TwinsHubHelper.GetBaseTwinHubModel();
+            Task<ShoulderTwinHubModel?> shoulderTwinHubModelTask = TwinsHubHelper.GetShoulderTwinHubModel();
+            Task<ElbowTwinHubModel?> elbowTwinHubModelTask = TwinsHubHelper.GetElbowTwinHubModel();
+            Task<Wrist1TwinHubModel?> wrist1TwinHubModelTask = TwinsHubHelper.GetWrist1TwinHubModel();
+            Task<Wrist2TwinHubModel?> wrist2TwinHubModelTask = TwinsHubHelper.GetWrist2TwinHubModel();
+            Task<Wrist3TwinHubModel?> wrist3TwinHubModelTask = TwinsHubHelper.GetWrist3TwinHubModel();
+            Task<ToolTwinHubModel?> toolTwinHubModelTask = TwinsHubHelper.GetToolTwinHubModel();
+
+            await Task.WhenAll(
+                cobotTwinHubModelTask,
+                controlBoxTwinHubModelTask,
+                payloadTwinHubModelTask,
+                baseTwinHubModelTask,
+                shoulderTwinHubModelTask,
+                elbowTwinHubModelTask,
+                wrist1TwinHubModelTask,
+                wrist2TwinHubModelTask,
+                wrist3TwinHubModelTask,
+                toolTwinHubModelTask);
+
+            CobotTwinHubModel? cobotTwinHubModel = cobotTwinHubModelTask.Result;
+            ControlBoxTwinHubModel? controlBoxTwinHubModel = controlBoxTwinHubModelTask.Result;
+            PayloadTwinHubModel? payloadTwinHubModel = payloadTwinHubModelTask.Result;
+            BaseTwinHubModel? baseTwinHubModel = baseTwinHubModelTask.Result;
+            ShoulderTwinHubModel? shoulderTwinHubModel = shoulderTwinHubModelTask.Result;
+            ElbowTwinHubModel? elbowTwinHubModel = elbowTwinHubModelTask.Result;
+            Wrist1TwinHubModel? wrist1TwinHubModel = wrist1TwinHubModelTask.Result;
+            Wrist2TwinHubModel? wrist2TwinHubModel = wrist2TwinHubModelTask.Result;
+            Wrist3TwinHubModel? wrist3TwinHubModel = wrist3TwinHubModelTask.Result;
+            ToolTwinHubModel? toolTwinHubModel = toolTwinHubModelTask.Result;
+
+            stopwatch.Stop();
+            double duration = stopwatch.Elapsed.TotalMilliseconds;
+            TwinsTelemetryModel twinsTelemetryModel = TwinsTelemetryModel.GetTwinsTelemetryModel(
+                duration: duration,
+                cobotTwinHubModel: cobotTwinHubModel,
+                controlBoxTwinHubModel: controlBoxTwinHubModel,
+                payloadTwinHubModel: payloadTwinHubModel,
+                baseTwinHubModel: baseTwinHubModel,
+                shoulderTwinHubModel: shoulderTwinHubModel,
+                elbowTwinHubModel: elbowTwinHubModel,
+                wrist1TwinHubModel: wrist1TwinHubModel,
+                wrist2TwinHubModel: wrist2TwinHubModel,
+                wrist3TwinHubModel: wrist3TwinHubModel,
+                toolTwinHubModel: toolTwinHubModel
+                );
+
+            await Clients.All.SendAsync("TwinsTelemetryResponse", System.Text.Json.JsonSerializer.Serialize(twinsTelemetryModel));
         }
     }
 }
