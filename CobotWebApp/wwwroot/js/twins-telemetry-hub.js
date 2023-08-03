@@ -106,7 +106,7 @@ twinsHubConnection.on("TwinsTelemetryResponse", function (message) {
     toolYDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Y;
     toolZDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Z;
 
-    setTimeout(invokeTwinsTelemetryTask, 2000);
+    setTimeout(invokeTwinsTelemetryTask, 5000);
 });
 function invokeTwinsTelemetryTask() {
     twinsTelemetrySpinner.style.display = 'block';
