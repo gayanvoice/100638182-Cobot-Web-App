@@ -76,6 +76,9 @@ namespace CobotWebApp.Models.Hub
                     toolTwinModel.Rx = toolTwinHubModel.Value.Rx;
                     toolTwinModel.Ry = toolTwinHubModel.Value.Ry;
                     toolTwinModel.Rz = toolTwinHubModel.Value.Rz;
+                    toolTwinModel.X = toolTwinHubModel.Value.X;
+                    toolTwinModel.Y = toolTwinHubModel.Value.Y;
+                    toolTwinModel.Z = toolTwinHubModel.Value.Z;
                 }
                 else
                 {
@@ -84,6 +87,9 @@ namespace CobotWebApp.Models.Hub
                     toolTwinModel.Rx = 0.0;
                     toolTwinModel.Ry = 0.0;
                     toolTwinModel.Rz = 0.0;
+                    toolTwinModel.X = 0.0;
+                    toolTwinModel.Y = 0.0;
+                    toolTwinModel.Z = 0.0;
                 }
                 return toolTwinModel;
             }
