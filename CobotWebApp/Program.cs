@@ -48,4 +48,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 app.MapHub<TwinsHub>("/twinsHub");
+app.MapHub<TwinsHub>("/twinOfTwinHub");
 app.Run();

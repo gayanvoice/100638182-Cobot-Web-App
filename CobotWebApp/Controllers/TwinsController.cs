@@ -70,6 +70,12 @@ namespace CobotWebApp.Controllers
             twinsSimulationCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsSimulationCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
             return View(twinsSimulationCommandResponseViewModel);
         }
-
+        public IActionResult TwinOfTwin()
+        {
+            TwinsViewModel.TwinOfTwinViewModel twinOfTwinViewModel = new TwinsViewModel.TwinOfTwinViewModel();
+            TwinsViewHelper.TwinOfTwinCommandResponseViewHelper twinOfTwinCommandResponseViewHelper = new TwinsViewHelper.TwinOfTwinCommandResponseViewHelper();
+            twinOfTwinViewModel.BreadCrumbPartialViewModelList = twinOfTwinCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            return View(twinOfTwinViewModel);
+        }
     }
 }

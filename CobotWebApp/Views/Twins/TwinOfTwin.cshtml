@@ -1,0 +1,668 @@
+﻿@model CobotWebApp.Models.View.TwinsViewModel.TwinOfTwinViewModel;
+
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <div class="d-flex align-items-center link-body-emphasise">
+                <i class="bi bi-robot me-2" style="font-size: 2em;"></i> <span class="fs-4">Cobot Digital Twin</span>
+            </div>
+            <partial name="_LoginPartial" />
+        </div>
+    </header>
+    <main>
+        @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
+        <div class="container" id="icon-grid">
+            <div class="h2 py-3 d-flex flex-row" id="twinsTelemetryTitle">
+                <div class="pe-2">
+                    <span>Twin Of Twin</span> (<span id="twinsTelemetryElapsedSpan">Loading</span><small class="text-body-secondary fw-light">/ms</small>)
+                </div>
+                <div>
+                     <span class="spinner-border text-primary" id="twinsTelemetrySpinner" style="display: block" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+               </div>
+            </div>
+            <div class="row row-cols-2 g-4 py-3 border-bottom">
+                <div class="col">
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Cobot</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="cobotElapsedTimeDiv">null</div>
+                                <div class="h6">Elapsed Time</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Control Box</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="controlBoxVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Payload</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="payloadCogXDiv">null</div>
+                                <div class="h6">CogX</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="payloadCogYDiv">null</div>
+                                <div class="h6">CogY</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="payloadCogZDiv">null</div>
+                                <div class="h6">CogZ</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="payloadMassDiv">null</div>
+                                <div class="h6">Mass</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="basePositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="baseTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="baseVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Shoulder</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="shoulderPositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="shoulderTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="shoulderVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Elbow</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowPositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowXDiv">null</div>
+                                <div class="h6">X</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowYDiv">null</div>
+                                <div class="h6">Y</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="elbowZDiv">null</div>
+                                <div class="h6">Z</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Wrist1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist1PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist1TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist1VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Wrist2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist2PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist2TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist2VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Wrist3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist3PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist3TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="wrist3VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Tool</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolRxDiv">null</div>
+                                <div class="h6">Rx</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolRyDiv">null</div>
+                                <div class="h6">Ry</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolRzDiv">null</div>
+                                <div class="h6">Rz</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolXDiv">null</div>
+                                <div class="h6">X</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolYDiv">null</div>
+                                <div class="h6">Y</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="toolZDiv">null</div>
+                                <div class="h6">Z</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Cobot</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tCobotElapsedTimeDiv">null</div>
+                                <div class="h6">Elapsed Time</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Control Box</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tControlBoxVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Payload</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tPayloadCogXDiv">null</div>
+                                <div class="h6">CogX</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tPayloadCogYDiv">null</div>
+                                <div class="h6">CogY</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tPayloadCogZDiv">null</div>
+                                <div class="h6">CogZ</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tPayloadMassDiv">null</div>
+                                <div class="h6">Mass</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tBasePositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tBaseTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tBaseVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Shoulder</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tShoulderPositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tShoulderTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tShoulderVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Elbow</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowPositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowXDiv">null</div>
+                                <div class="h6">X</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowYDiv">null</div>
+                                <div class="h6">Y</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tElbowZDiv">null</div>
+                                <div class="h6">Z</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Wrist1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist1PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist1TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist1VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Wrist2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist2PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist2TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist2VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Wrist3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist3PositionDiv">null</div>
+                                <div class="h6">Position</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist3TemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tWrist3VoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 g-4 py-3 border-bottom">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h3 mb-0">Twin of Tool</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 g-4 py-3">
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolTemperatureDiv">null</div>
+                                <div class="h6">Temperature</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolVoltageDiv">null</div>
+                                <div class="h6">Voltage</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolRxDiv">null</div>
+                                <div class="h6">Rx</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolRyDiv">null</div>
+                                <div class="h6">Ry</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolRzDiv">null</div>
+                                <div class="h6">Rz</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolXDiv">null</div>
+                                <div class="h6">X</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolYDiv">null</div>
+                                <div class="h6">Y</div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <div class="h4 mb-0" id="tToolZDiv">null</div>
+                                <div class="h6">Z</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Twins" asp-action="Dashboard">Back</a>
+        </div>
+    </main>
+</div>
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .icon-link > .bi {
+            width: .75em;
+            height: .75em;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+        <symbol id="house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+        </symbol>
+    </svg>
+}
+@section Scripts
+{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="/js/twin-of-twin-hub.js"></script>
+}
