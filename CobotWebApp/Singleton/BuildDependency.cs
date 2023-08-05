@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 
 namespace CobotWebApp.Singleton
@@ -18,10 +19,7 @@ namespace CobotWebApp.Singleton
                 if (index > 0)
                 {
                     value = value.Substring(index + BuildVersionMetadataPrefix.Length);
-                    if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var timeStamp))
-                    {
-                        return $"{timeStamp.Year}{timeStamp.Month}{timeStamp.Day}{timeStamp.Hour + 1}{timeStamp.Minute}{timeStamp.Second}{timeStamp.Millisecond}"; ;
-                    }
+                    return DateTime.Now.ToString("yyyyMMddHHmmssffff");
                 }
             }
             return  $"Error Retrieving Build Number ";

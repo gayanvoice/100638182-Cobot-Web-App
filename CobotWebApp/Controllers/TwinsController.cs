@@ -43,7 +43,7 @@ namespace CobotWebApp.Controllers
             TwinsViewModel.StartIotControlCommandResponseViewModel startIotControlCommandResponseViewModel = new TwinsViewModel.StartIotControlCommandResponseViewModel();
             TwinsViewHelper.StartIotControlCommandResponseViewHelper startIotControlCommandResponseViewHelper = new TwinsViewHelper.StartIotControlCommandResponseViewHelper(
                 cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
-            startIotControlCommandResponseViewModel.BreadCrumbPartialViewModelList = startIotControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            startIotControlCommandResponseViewModel.BreadCrumbPartialViewModelList = startIotControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForStartIotControlCommandResponseView();
             startIotControlCommandResponseViewModel.StartIotControlCommandResponseModelList = await startIotControlCommandResponseViewHelper.PostStartIotControlCommandResponseModelListAsync();
             return View(startIotControlCommandResponseViewModel);
         }
@@ -52,30 +52,37 @@ namespace CobotWebApp.Controllers
             TwinsViewModel.StopIotControlCommandResponseViewModel stopIotControlCommandResponseViewModel = new TwinsViewModel.StopIotControlCommandResponseViewModel();
             TwinsViewHelper.StopIotControlCommandResponseViewHelper stopIotControlCommandResponseViewHelper = new TwinsViewHelper.StopIotControlCommandResponseViewHelper(
                 cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
-            stopIotControlCommandResponseViewModel.BreadCrumbPartialViewModelList = stopIotControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            stopIotControlCommandResponseViewModel.BreadCrumbPartialViewModelList = stopIotControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForStopIotControlCommandResponseView();
             stopIotControlCommandResponseViewModel.StopIotControlCommandResponseModelList = await stopIotControlCommandResponseViewHelper.PostStopIotControlCommandResponseModelListAsync();
             return View(stopIotControlCommandResponseViewModel);
         }
         public IActionResult TwinsTelemetryAsync()
         {
             TwinsViewModel.TwinsTelemetryViewModel twinsTelemetryCommandResponseViewModel = new TwinsViewModel.TwinsTelemetryViewModel();
-            TwinsViewHelper.TwinsTelemetryCommandResponseViewHelper twinsTelemetryCommandResponseViewHelper = new TwinsViewHelper.TwinsTelemetryCommandResponseViewHelper();
-            twinsTelemetryCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsTelemetryCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            TwinsViewHelper.TwinsTelemetryViewHelper twinsTelemetryCommandResponseViewHelper = new TwinsViewHelper.TwinsTelemetryViewHelper();
+            twinsTelemetryCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsTelemetryCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForTwinsTelemetryView();
             return View(twinsTelemetryCommandResponseViewModel);
         }
         public IActionResult TwinsSimulationAsync()
         {
             TwinsViewModel.TwinsSimulationViewModel twinsSimulationCommandResponseViewModel = new TwinsViewModel.TwinsSimulationViewModel();
-            TwinsViewHelper.TwinsSimulationCommandResponseViewHelper twinsSimulationCommandResponseViewHelper = new TwinsViewHelper.TwinsSimulationCommandResponseViewHelper();
-            twinsSimulationCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsSimulationCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            TwinsViewHelper.TwinsSimulationViewHelper twinsSimulationCommandResponseViewHelper = new TwinsViewHelper.TwinsSimulationViewHelper();
+            twinsSimulationCommandResponseViewModel.BreadCrumbPartialViewModelList = twinsSimulationCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForTwinsSimulationView();
             return View(twinsSimulationCommandResponseViewModel);
         }
         public IActionResult TwinOfTwin()
         {
             TwinsViewModel.TwinOfTwinViewModel twinOfTwinViewModel = new TwinsViewModel.TwinOfTwinViewModel();
-            TwinsViewHelper.TwinOfTwinCommandResponseViewHelper twinOfTwinCommandResponseViewHelper = new TwinsViewHelper.TwinOfTwinCommandResponseViewHelper();
-            twinOfTwinViewModel.BreadCrumbPartialViewModelList = twinOfTwinCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
+            TwinsViewHelper.TwinOfTwinViewHelper twinOfTwinCommandResponseViewHelper = new TwinsViewHelper.TwinOfTwinViewHelper();
+            twinOfTwinViewModel.BreadCrumbPartialViewModelList = twinOfTwinCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForTwinOfTwinView();
             return View(twinOfTwinViewModel);
+        }
+        public IActionResult TwinsStatus()
+        {
+            TwinsViewModel.TwinsStatusViewModel twinsStatusViewModel = new TwinsViewModel.TwinsStatusViewModel();
+            TwinsViewHelper.TwinsStatusViewHelper twinOfTwinCommandResponseViewHelper = new TwinsViewHelper.TwinsStatusViewHelper();
+            twinsStatusViewModel.BreadCrumbPartialViewModelList = twinOfTwinCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForTwinsStatusView();
+            return View(twinsStatusViewModel);
         }
     }
 }

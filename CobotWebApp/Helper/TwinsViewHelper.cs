@@ -23,7 +23,7 @@ namespace CobotWebApp.Helper
             private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
             public StartIotControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
             _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
-            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForStartIotControlCommandResponseView()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
                 {
@@ -39,6 +39,7 @@ namespace CobotWebApp.Helper
                     new List<CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel> {
                         new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Cobot", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "ControlBox", responseTimeout: 20),
+                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Payload", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Base", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Elbow", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Shoulder", responseTimeout: 20),
@@ -66,7 +67,7 @@ namespace CobotWebApp.Helper
             private readonly CobotIotCommandFunctionService _cobotIotCommandFunctionService;
             public StopIotControlCommandResponseViewHelper(CobotIotCommandFunctionService cobotIotCommandFunctionService) =>
             _cobotIotCommandFunctionService = cobotIotCommandFunctionService;
-            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForStopIotControlCommandResponseView()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
                 {
@@ -82,6 +83,7 @@ namespace CobotWebApp.Helper
                     new List<CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel> {
                         new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "Cobot", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "ControlBox", responseTimeout: 20),
+                        new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "Payload", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "Base", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "Elbow", responseTimeout: 20),
                         new CobotIotCommandFunctionModel.RequestModel.StopIotControlCommandRequestModel(deviceId: "Shoulder", responseTimeout: 20),
@@ -103,9 +105,9 @@ namespace CobotWebApp.Helper
                 return stopIotControlCommandResponseModelList;
             }
         }
-        public class TwinsTelemetryCommandResponseViewHelper
+        public class TwinsTelemetryViewHelper
         {
-            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForTwinsTelemetryView()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
                 {
@@ -116,9 +118,9 @@ namespace CobotWebApp.Helper
                 return breadCrumbPartialViewModelList;
             }
         }
-        public class TwinsSimulationCommandResponseViewHelper
+        public class TwinsSimulationViewHelper
         {
-            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForTwinsSimulationView()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
                 {
@@ -129,15 +131,28 @@ namespace CobotWebApp.Helper
                 return breadCrumbPartialViewModelList;
             }
         }
-        public class TwinOfTwinCommandResponseViewHelper
+        public class TwinOfTwinViewHelper
         {
-            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForDashboardView()
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForTwinOfTwinView()
             {
                 List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
                 {
                      BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
                      BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Twins Dashboard", aspController:"Twins", aspAction:"Dashboard"),
                     BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Twin Of Twin")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
+        public class TwinsStatusViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForTwinsStatusView()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Twins Dashboard", aspController:"Twins", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Twins Status")
                 };
                 return breadCrumbPartialViewModelList;
             }
