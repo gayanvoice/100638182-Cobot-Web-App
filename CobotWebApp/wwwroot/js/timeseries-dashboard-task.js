@@ -17,33 +17,33 @@ const wrist3StatusLabelDiv = document.getElementById("wrist3StatusLabelDiv");
 const toolStatusLabelDiv = document.getElementById("toolStatusLabelDiv");
 
 timeseriesHubConnection.start().then(function () {
-    invokeTimeseriesStatusTask();
+    invokeTimeseriesDashboardTask();
 }).catch(function (err) {
     return console.error(err.toString());
 });
 
-timeseriesHubConnection.on("TimeseriesStatusResponse", function (message) {
+timeseriesHubConnection.on("TimeseriesDashboardResponse", function (message) {
     timeseriesDashboardSpinner.style.display = 'none';
-    const timeseriesStatusModelObject = JSON.parse(message);
+    const timeseriesDashboardModelObject = JSON.parse(message);
 
-    timeseriesDashboardElapsedSpan.innerHTML = timeseriesStatusModelObject.Duration;
+    timeseriesDashboardElapsedSpan.innerHTML = timeseriesDashboardModelObject.Duration;
 
-    cobotStatusLabelDiv.innerHTML = timeseriesStatusModelObject.CobotStatusLabel;
-    controlBoxStatusLabelDiv.innerHTML = timeseriesStatusModelObject.ControlBoxStatusLabel;
-    payloadStatusLabelDiv.innerHTML = timeseriesStatusModelObject.PayloadStatusLabel;
-    baseStatusLabelDiv.innerHTML = timeseriesStatusModelObject.BaseStatusLabel;
-    shoulderStatusLabelDiv.innerHTML = timeseriesStatusModelObject.ShoulderStatusLabel;
-    elbowStatusLabelDiv.innerHTML = timeseriesStatusModelObject.ElbowStatusLabel;
-    wrist1StatusLabelDiv.innerHTML = timeseriesStatusModelObject.Wrist1StatusLabel;
-    wrist2StatusLabelDiv.innerHTML = timeseriesStatusModelObject.Wrist2StatusLabel;
-    wrist3StatusLabelDiv.innerHTML = timeseriesStatusModelObject.Wrist3StatusLabel;
-    toolStatusLabelDiv.innerHTML = timeseriesStatusModelObject.ToolStatusLabel;
+    cobotStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.CobotStatusLabel;
+    controlBoxStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.ControlBoxStatusLabel;
+    payloadStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.PayloadStatusLabel;
+    baseStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.BaseStatusLabel;
+    shoulderStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.ShoulderStatusLabel;
+    elbowStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.ElbowStatusLabel;
+    wrist1StatusLabelDiv.innerHTML = timeseriesDashboardModelObject.Wrist1StatusLabel;
+    wrist2StatusLabelDiv.innerHTML = timeseriesDashboardModelObject.Wrist2StatusLabel;
+    wrist3StatusLabelDiv.innerHTML = timeseriesDashboardModelObject.Wrist3StatusLabel;
+    toolStatusLabelDiv.innerHTML = timeseriesDashboardModelObject.ToolStatusLabel;
 
-    setTimeout(invokeTimeseriesStatusTask, 5000);
+    setTimeout(invokeTimeseriesDashboardTask, 5000);
 });
-function invokeTimeseriesStatusTask() {
+function invokeTimeseriesDashboardTask() {
     timeseriesDashboardSpinner.style.display = 'block';
-    timeseriesHubConnection.invoke("TimeseriesStatusTask").catch(function (err) {
+    timeseriesHubConnection.invoke("TimeseriesDashboardTask").catch(function (err) {
         console.log(err.toString());
 
         cobotStatusLabelDiv.innerHTML = "Not Syncing";

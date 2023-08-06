@@ -38,5 +38,12 @@ namespace CobotWebApp.Controllers
             dashboardViewModel.BreadCrumbPartialViewModelList = dashboardViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
             return View(dashboardViewModel);
         }
+        public IActionResult Cobot()
+        {
+            TimeseriesViewModel.CobotViewModel cobotViewModel = new TimeseriesViewModel.CobotViewModel();
+            TimeseriesViewHelper.CobotViewHelper cobotViewHelper = new TimeseriesViewHelper.CobotViewHelper();
+            cobotViewModel.BreadCrumbPartialViewModelList = cobotViewHelper.GetBreadCrumbPartialViewModelListForCobotView();
+            return View(cobotViewModel);
+        }
     }
 }

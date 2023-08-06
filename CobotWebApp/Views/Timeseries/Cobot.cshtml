@@ -1,4 +1,4 @@
-﻿@model CobotWebApp.Models.View.TwinsViewModel.TwinsSimulationViewModel;
+﻿@model CobotWebApp.Models.View.TimeseriesViewModel.CobotViewModel;
 
 <div class="container py-3">
     <header>
@@ -11,30 +11,21 @@
     </header>
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
-        <div class="container" id="icon-grid">
-            <div class="h2 py-3 d-flex flex-row" id="twinsSimulationTitle">
-                <div class="pe-2">
-                    <span>Twins Simulation</span> (<span id="twinsSimulationElapsedSpan">Loading</span><small class="text-body-secondary fw-light">/ms</small>)
-                </div>
-                <div>
-                     <span class="spinner-border text-primary" id="twinsSimulationSpinner" style="display: block" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </span>
-               </div>
+        <div class="h2 pb-4 pt-2 d-flex flex-row">
+            <div class="pe-2">
+                <span>Cobot</span> (<span id="timeseriesCobotElapsedSpan">Loading</span><small class="text-body-secondary fw-light">/ms</small>)
             </div>
-            <div class="py-3">
-                <div class="pe-2">
-                    <span class="h3">Elbow Simulation</span>
-                </div>
-                <div id="elbowGraphDiv" style="width:100%;height:650px"></div>
+            <div>
+                <span class="spinner-border text-primary" id="timeseriesCobotSpinner" style="display: block" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </span>
             </div>
-            <div class="py-3">
-                <div class="pe-2">
-                    <span class="h3">Tool Simulation</span>
-                </div>
-                <div id="toolGraphDiv" style="width:100%;height:650px"></div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3">
+            <div class="pe-2">
+                <span class="h3">Elapsed Time</span>
             </div>
-            <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Twins" asp-action="Dashboard">Back</a>
+            <div id="cobotElapsedTimeGraphDiv" style="width:100%;height:350px"></div>
         </div>
     </main>
 </div>
@@ -71,5 +62,5 @@
     <script src="/js/jquery/ajax.googleapis.com_ajax_libs_jquery_1.12.4_jquery.min.js"></script>
     <script src="/js/plotly/cdn.plot.ly_plotly-latest.min.js"></script>
     <script src="/js/signalr/dist/browser/signalr.js"></script>
-    <script src="/js/twins-simulation-task.js"></script>
+    <script src="/js/timeseries-cobot-task.js"></script>
 }

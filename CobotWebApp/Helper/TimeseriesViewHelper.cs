@@ -18,5 +18,18 @@ namespace CobotWebApp.Helper
                 return breadCrumbPartialViewModelList;
             }
         }
+        public class CobotViewHelper
+        {
+            public List<BreadCrumbPartialViewModel> GetBreadCrumbPartialViewModelListForCobotView()
+            {
+                List<BreadCrumbPartialViewModel> breadCrumbPartialViewModelList = new List<BreadCrumbPartialViewModel>
+                {
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Dashboard", aspController:"Home", aspAction:"Dashboard"),
+                     BreadCrumbPartialViewModel.GetItem(breadCrumbItem:"Time Series Dashboard", aspController:"Timeseries", aspAction:"Dashboard"),
+                    BreadCrumbPartialViewModel.GetCurrentItem(breadCrumbItem:"Cobot")
+                };
+                return breadCrumbPartialViewModelList;
+            }
+        }
     }
 }

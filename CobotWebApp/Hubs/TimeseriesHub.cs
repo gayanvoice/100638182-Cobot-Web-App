@@ -9,7 +9,7 @@ namespace CobotWebApp.Hubs
     [Authorize]
     public class TimeseriesHub : Hub
     {
-        public async Task TimeseriesStatusTask()
+        public async Task TimeseriesDashboardTask()
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -50,7 +50,7 @@ namespace CobotWebApp.Hubs
             stopwatch.Stop();
             double duration = stopwatch.Elapsed.TotalMilliseconds;
 
-            TimeseriesStatusModel timeseriesStatusModel = TimeseriesStatusModel.GetTimeseriesStatusModel(
+            TimeseriesDashboardModel timeseriesStatusModel = TimeseriesDashboardModel.GetTimeseriesDashboardModel(
                 duration: duration,
                 cobotTwinHubModel: cobotTwinHubModel,
                 controlBoxTwinHubModel: controlBoxTwinHubModel,
@@ -63,7 +63,25 @@ namespace CobotWebApp.Hubs
                 wrist3TwinHubModel: wrist3TwinHubModel,
                 toolTwinHubModel: toolTwinHubModel);
 
-            await Clients.All.SendAsync("TimeseriesStatusResponse", System.Text.Json.JsonSerializer.Serialize(timeseriesStatusModel));
+            await Clients.All.SendAsync("TimeseriesDashboardResponse", System.Text.Json.JsonSerializer.Serialize(timeseriesStatusModel));
+        }
+        public async Task TimeseriesCobotTask()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Task<CobotTwinHubModel?> cobotTwinHubModelTask = TwinsHubHelper.GetCobotTwinHubModel();
+
+            await Task.WhenAll(cobotTwinHubModelTask);
+
+            CobotTwinHubModel? cobotTwinHubModel = cobotTwinHubModelTask.Result;
+
+            stopwatch.Stop();
+            double duration = stopwatch.Elapsed.TotalMilliseconds;
+            TimeseriesCobotModel timeseriesCobotModel = TimeseriesCobotModel.GetCobotTwinHubModel(
+                duration: duration,
+                cobotTwinHubModel: cobotTwinHubModel);
+
+            await Clients.All.SendAsync("TimeseriesCobotResponse", System.Text.Json.JsonSerializer.Serialize(timeseriesCobotModel));
         }
     }
 }

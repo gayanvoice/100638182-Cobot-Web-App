@@ -31,7 +31,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="cobotStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Cobot">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Cobot">Open</a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="controlBoxStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="ControlBox">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="ControlBox">Open</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="payloadStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Payload">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Payload">Open</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="baseStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Base">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Base">Open</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="shoulderStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Shoulder">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Shoulder">Open</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="elbowStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Elbow">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Elbow">Open</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="wrist1StatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Wrist1">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Wrist1">Open</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="wrist2StatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Wrist2">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Wrist2">Open</a>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="wrist3StatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Wrist3">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Wrist3">Open</a>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@
                         <div class="mt-2 mb-4 ">
                             <div class="card-title pricing-card-title mb-4 h3" id="toolStatusLabelDiv">null</div>
                         </div>
-                        <a class="w-100 btn btn-lg btn-primary" asp-area="Timeseries" asp-action="Tool">Open</a>
+                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Timeseries" asp-action="Tool">Open</a>
                     </div>
                 </div>
             </div>
@@ -192,5 +192,5 @@
 }
 @section Scripts{
     <script src="/js/signalr/dist/browser/signalr.js"></script>
-    <script src="/js/time-series-status-task.js"></script>
+    <script src="/js/timeseries-dashboard-task.js"></script>
 }
