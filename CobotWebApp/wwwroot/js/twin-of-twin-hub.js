@@ -1,9 +1,9 @@
 ﻿"use strict";
 
-const twinOfTwinHubConnection = new signalR.HubConnectionBuilder().withUrl("/twinOfTwinHub").build();
+const twinsHubConnection = new signalR.HubConnectionBuilder().withUrl("/twinsHub").build();
 
-const twinsTelemetryElapsedSpan = document.getElementById("twinsTelemetryElapsedSpan");
-const twinsTelemetrySpinner = document.getElementById("twinsTelemetrySpinner");
+const twinOfTwinElapsedSpan = document.getElementById("twinOfTwinElapsedSpan");
+const twinOfTwinSpinner = document.getElementById("twinOfTwinSpinner");
 
 const cobotElapsedTimeDiv = document.getElementById("cobotElapsedTimeDiv");
 const controlBoxVoltageDiv = document.getElementById("controlBoxVoltageDiv");
@@ -77,95 +77,95 @@ const tToolXDiv = document.getElementById("tToolXDiv");
 const tToolYDiv = document.getElementById("tToolYDiv");
 const tToolZDiv = document.getElementById("tToolZDiv");
 
-twinOfTwinHubConnection.start().then(function () {
+twinsHubConnection.start().then(function () {
     invokeTwinOfTwinTask();
 }).catch(function (err) {
     return console.error(err.toString());
 });
 
-twinOfTwinHubConnection.on("TwinOfTwinResponse", function (message) {
+twinsHubConnection.on("TwinOfTwinResponse", function (message) {
 
-    twinsTelemetrySpinner.style.display = 'none';
-    const twinsTelemetryModelObject = JSON.parse(message);
-    twinsTelemetryElapsedSpan.innerHTML = twinsTelemetryModelObject.Duration;
+    twinOfTwinSpinner.style.display = 'none';
+    const twinOfTwinModelObject = JSON.parse(message);
+    twinOfTwinElapsedSpan.innerHTML = twinOfTwinModelObject.Duration;
 
-    cobotElapsedTimeDiv.innerHTML = twinsTelemetryModelObject.CobotTwinModel.ElapsedTime;
-    controlBoxVoltageDiv.innerHTML = twinsTelemetryModelObject.ControlBoxTwinModel.Voltage;
-    payloadCogXDiv.innerHTML = twinsTelemetryModelObject.PayloadTwinModel.CogX;
-    payloadCogYDiv.innerHTML = twinsTelemetryModelObject.PayloadTwinModel.CogY;
-    payloadCogZDiv.innerHTML = twinsTelemetryModelObject.PayloadTwinModel.CogZ;
-    payloadMassDiv.innerHTML = twinsTelemetryModelObject.PayloadTwinModel.Mass;
-    basePositionDiv.innerHTML = twinsTelemetryModelObject.BaseTwinModel.Position;
-    baseTemperatureDiv.innerHTML = twinsTelemetryModelObject.BaseTwinModel.Temperature;
-    baseVoltageDiv.innerHTML = twinsTelemetryModelObject.BaseTwinModel.Voltage;
-    shoulderPositionDiv.innerHTML = twinsTelemetryModelObject.ShoulderTwinModel.Position;
-    shoulderTemperatureDiv.innerHTML = twinsTelemetryModelObject.ShoulderTwinModel.Temperature;
-    shoulderVoltageDiv.innerHTML = twinsTelemetryModelObject.ShoulderTwinModel.Voltage;
-    elbowPositionDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.Position;
-    elbowTemperatureDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.Temperature;
-    elbowVoltageDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.Voltage;
-    elbowXDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.X;
-    elbowYDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.Y;
-    elbowZDiv.innerHTML = twinsTelemetryModelObject.ElbowTwinModel.Z;
-    wrist1PositionDiv.innerHTML = twinsTelemetryModelObject.Wrist1TwinModel.Position;
-    wrist1TemperatureDiv.innerHTML = twinsTelemetryModelObject.Wrist1TwinModel.Temperature;
-    wrist1VoltageDiv.innerHTML = twinsTelemetryModelObject.Wrist1TwinModel.Voltage;
-    wrist2PositionDiv.innerHTML = twinsTelemetryModelObject.Wrist2TwinModel.Position;
-    wrist2TemperatureDiv.innerHTML = twinsTelemetryModelObject.Wrist2TwinModel.Temperature;
-    wrist2VoltageDiv.innerHTML = twinsTelemetryModelObject.Wrist2TwinModel.Voltage;
-    wrist3PositionDiv.innerHTML = twinsTelemetryModelObject.Wrist3TwinModel.Position;
-    wrist3TemperatureDiv.innerHTML = twinsTelemetryModelObject.Wrist3TwinModel.Temperature;
-    wrist3VoltageDiv.innerHTML = twinsTelemetryModelObject.Wrist3TwinModel.Voltage;
-    toolTemperatureDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Temperature;
-    toolVoltageDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Voltage;
-    toolRxDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Rx;
-    toolRyDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Ry;
-    toolRzDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Rz;
-    toolXDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.X;
-    toolYDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Y;
-    toolZDiv.innerHTML = twinsTelemetryModelObject.ToolTwinModel.Z;
+    cobotElapsedTimeDiv.innerHTML = twinOfTwinModelObject.CobotTwinModel.ElapsedTime;
+    controlBoxVoltageDiv.innerHTML = twinOfTwinModelObject.ControlBoxTwinModel.Voltage;
+    payloadCogXDiv.innerHTML = twinOfTwinModelObject.PayloadTwinModel.CogX;
+    payloadCogYDiv.innerHTML = twinOfTwinModelObject.PayloadTwinModel.CogY;
+    payloadCogZDiv.innerHTML = twinOfTwinModelObject.PayloadTwinModel.CogZ;
+    payloadMassDiv.innerHTML = twinOfTwinModelObject.PayloadTwinModel.Mass;
+    basePositionDiv.innerHTML = twinOfTwinModelObject.BaseTwinModel.Position;
+    baseTemperatureDiv.innerHTML = twinOfTwinModelObject.BaseTwinModel.Temperature;
+    baseVoltageDiv.innerHTML = twinOfTwinModelObject.BaseTwinModel.Voltage;
+    shoulderPositionDiv.innerHTML = twinOfTwinModelObject.ShoulderTwinModel.Position;
+    shoulderTemperatureDiv.innerHTML = twinOfTwinModelObject.ShoulderTwinModel.Temperature;
+    shoulderVoltageDiv.innerHTML = twinOfTwinModelObject.ShoulderTwinModel.Voltage;
+    elbowPositionDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.Position;
+    elbowTemperatureDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.Temperature;
+    elbowVoltageDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.Voltage;
+    elbowXDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.X;
+    elbowYDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.Y;
+    elbowZDiv.innerHTML = twinOfTwinModelObject.ElbowTwinModel.Z;
+    wrist1PositionDiv.innerHTML = twinOfTwinModelObject.Wrist1TwinModel.Position;
+    wrist1TemperatureDiv.innerHTML = twinOfTwinModelObject.Wrist1TwinModel.Temperature;
+    wrist1VoltageDiv.innerHTML = twinOfTwinModelObject.Wrist1TwinModel.Voltage;
+    wrist2PositionDiv.innerHTML = twinOfTwinModelObject.Wrist2TwinModel.Position;
+    wrist2TemperatureDiv.innerHTML = twinOfTwinModelObject.Wrist2TwinModel.Temperature;
+    wrist2VoltageDiv.innerHTML = twinOfTwinModelObject.Wrist2TwinModel.Voltage;
+    wrist3PositionDiv.innerHTML = twinOfTwinModelObject.Wrist3TwinModel.Position;
+    wrist3TemperatureDiv.innerHTML = twinOfTwinModelObject.Wrist3TwinModel.Temperature;
+    wrist3VoltageDiv.innerHTML = twinOfTwinModelObject.Wrist3TwinModel.Voltage;
+    toolTemperatureDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Temperature;
+    toolVoltageDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Voltage;
+    toolRxDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Rx;
+    toolRyDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Ry;
+    toolRzDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Rz;
+    toolXDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.X;
+    toolYDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Y;
+    toolZDiv.innerHTML = twinOfTwinModelObject.ToolTwinModel.Z;
 
-    tCobotElapsedTimeDiv.innerHTML = twinsTelemetryModelObject.TCobotTwinModel.ElapsedTime;
-    tControlBoxVoltageDiv.innerHTML = twinsTelemetryModelObject.TControlBoxTwinModel.Voltage;
-    tPayloadCogXDiv.innerHTML = twinsTelemetryModelObject.TPayloadTwinModel.CogX;
-    tPayloadCogYDiv.innerHTML = twinsTelemetryModelObject.TPayloadTwinModel.CogY;
-    tPayloadCogZDiv.innerHTML = twinsTelemetryModelObject.TPayloadTwinModel.CogZ;
-    tPayloadMassDiv.innerHTML = twinsTelemetryModelObject.TPayloadTwinModel.Mass;
-    tBasePositionDiv.innerHTML = twinsTelemetryModelObject.TBaseTwinModel.Position;
-    tBaseTemperatureDiv.innerHTML = twinsTelemetryModelObject.TBaseTwinModel.Temperature;
-    tBaseVoltageDiv.innerHTML = twinsTelemetryModelObject.TBaseTwinModel.Voltage;
-    tShoulderPositionDiv.innerHTML = twinsTelemetryModelObject.TShoulderTwinModel.Position;
-    tShoulderTemperatureDiv.innerHTML = twinsTelemetryModelObject.TShoulderTwinModel.Temperature;
-    tShoulderVoltageDiv.innerHTML = twinsTelemetryModelObject.TShoulderTwinModel.Voltage;
-    tElbowPositionDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.Position;
-    tElbowTemperatureDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.Temperature;
-    tElbowVoltageDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.Voltage;
-    tElbowXDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.X;
-    tElbowYDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.Y;
-    tElbowZDiv.innerHTML = twinsTelemetryModelObject.TElbowTwinModel.Z;
-    tWrist1PositionDiv.innerHTML = twinsTelemetryModelObject.TWrist1TwinModel.Position;
-    tWrist1TemperatureDiv.innerHTML = twinsTelemetryModelObject.TWrist1TwinModel.Temperature;
-    tWrist1VoltageDiv.innerHTML = twinsTelemetryModelObject.TWrist1TwinModel.Voltage;
-    tWrist2PositionDiv.innerHTML = twinsTelemetryModelObject.TWrist2TwinModel.Position;
-    tWrist2TemperatureDiv.innerHTML = twinsTelemetryModelObject.TWrist2TwinModel.Temperature;
-    tWrist2VoltageDiv.innerHTML = twinsTelemetryModelObject.TWrist2TwinModel.Voltage;
-    tWrist3PositionDiv.innerHTML = twinsTelemetryModelObject.TWrist3TwinModel.Position;
-    tWrist3TemperatureDiv.innerHTML = twinsTelemetryModelObject.TWrist3TwinModel.Temperature;
-    tWrist3VoltageDiv.innerHTML = twinsTelemetryModelObject.TWrist3TwinModel.Voltage;
-    tToolTemperatureDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Temperature;
-    tToolVoltageDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Voltage;
-    tToolRxDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Rx;
-    tToolRyDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Ry;
-    tToolRzDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Rz;
-    tToolXDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.X;
-    tToolYDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Y;
-    tToolZDiv.innerHTML = twinsTelemetryModelObject.TToolTwinModel.Z;
+    tCobotElapsedTimeDiv.innerHTML = twinOfTwinModelObject.TCobotTwinModel.ElapsedTime;
+    tControlBoxVoltageDiv.innerHTML = twinOfTwinModelObject.TControlBoxTwinModel.Voltage;
+    tPayloadCogXDiv.innerHTML = twinOfTwinModelObject.TPayloadTwinModel.CogX;
+    tPayloadCogYDiv.innerHTML = twinOfTwinModelObject.TPayloadTwinModel.CogY;
+    tPayloadCogZDiv.innerHTML = twinOfTwinModelObject.TPayloadTwinModel.CogZ;
+    tPayloadMassDiv.innerHTML = twinOfTwinModelObject.TPayloadTwinModel.Mass;
+    tBasePositionDiv.innerHTML = twinOfTwinModelObject.TBaseTwinModel.Position;
+    tBaseTemperatureDiv.innerHTML = twinOfTwinModelObject.TBaseTwinModel.Temperature;
+    tBaseVoltageDiv.innerHTML = twinOfTwinModelObject.TBaseTwinModel.Voltage;
+    tShoulderPositionDiv.innerHTML = twinOfTwinModelObject.TShoulderTwinModel.Position;
+    tShoulderTemperatureDiv.innerHTML = twinOfTwinModelObject.TShoulderTwinModel.Temperature;
+    tShoulderVoltageDiv.innerHTML = twinOfTwinModelObject.TShoulderTwinModel.Voltage;
+    tElbowPositionDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.Position;
+    tElbowTemperatureDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.Temperature;
+    tElbowVoltageDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.Voltage;
+    tElbowXDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.X;
+    tElbowYDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.Y;
+    tElbowZDiv.innerHTML = twinOfTwinModelObject.TElbowTwinModel.Z;
+    tWrist1PositionDiv.innerHTML = twinOfTwinModelObject.TWrist1TwinModel.Position;
+    tWrist1TemperatureDiv.innerHTML = twinOfTwinModelObject.TWrist1TwinModel.Temperature;
+    tWrist1VoltageDiv.innerHTML = twinOfTwinModelObject.TWrist1TwinModel.Voltage;
+    tWrist2PositionDiv.innerHTML = twinOfTwinModelObject.TWrist2TwinModel.Position;
+    tWrist2TemperatureDiv.innerHTML = twinOfTwinModelObject.TWrist2TwinModel.Temperature;
+    tWrist2VoltageDiv.innerHTML = twinOfTwinModelObject.TWrist2TwinModel.Voltage;
+    tWrist3PositionDiv.innerHTML = twinOfTwinModelObject.TWrist3TwinModel.Position;
+    tWrist3TemperatureDiv.innerHTML = twinOfTwinModelObject.TWrist3TwinModel.Temperature;
+    tWrist3VoltageDiv.innerHTML = twinOfTwinModelObject.TWrist3TwinModel.Voltage;
+    tToolTemperatureDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Temperature;
+    tToolVoltageDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Voltage;
+    tToolRxDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Rx;
+    tToolRyDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Ry;
+    tToolRzDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Rz;
+    tToolXDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.X;
+    tToolYDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Y;
+    tToolZDiv.innerHTML = twinOfTwinModelObject.TToolTwinModel.Z;
 
     setTimeout(invokeTwinOfTwinTask, 5000);
 });
 function invokeTwinOfTwinTask() {
-    twinsTelemetrySpinner.style.display = 'block';
-    twinOfTwinHubConnection.invoke("TwinOfTwinTask").catch(function (err) {
+    twinOfTwinSpinner.style.display = 'block';
+    twinsHubConnection.invoke("TwinOfTwinTask").catch(function (err) {
         console.log(err.toString());
         cobotElapsedTimeDiv.innerHTML = "Not Syncing";
 
