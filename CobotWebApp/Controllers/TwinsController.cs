@@ -38,13 +38,33 @@ namespace CobotWebApp.Controllers
             dashboardViewModel.BreadCrumbPartialViewModelList = dashboardViewHelper.GetBreadCrumbPartialViewModelListForDashboardView();
             return View(dashboardViewModel);
         }
-        public async Task<IActionResult> StartIotControlCommandResponseAsync()
+        public async Task<IActionResult> StartIotControlCommandResponseAsync(
+            bool cobotSwitchCheckDefault,
+            bool controlBoxSwitchCheckDefault,
+            bool payloadSwitchCheckDefault,
+            bool baseSwitchCheckDefault,
+            bool elbowSwitchCheckDefault,
+            bool shoulderSwitchCheckDefault,
+            bool wrist1SwitchCheckDefault,
+            bool wrist2SwitchCheckDefault,
+            bool wrist3SwitchCheckDefault,
+            bool toolSwitchCheckDefault)
         {
             TwinsViewModel.StartIotControlCommandResponseViewModel startIotControlCommandResponseViewModel = new TwinsViewModel.StartIotControlCommandResponseViewModel();
             TwinsViewHelper.StartIotControlCommandResponseViewHelper startIotControlCommandResponseViewHelper = new TwinsViewHelper.StartIotControlCommandResponseViewHelper(
                 cobotIotCommandFunctionService: _cobotIotCommandFunctionService);
             startIotControlCommandResponseViewModel.BreadCrumbPartialViewModelList = startIotControlCommandResponseViewHelper.GetBreadCrumbPartialViewModelListForStartIotControlCommandResponseView();
-            startIotControlCommandResponseViewModel.StartIotControlCommandResponseModelList = await startIotControlCommandResponseViewHelper.PostStartIotControlCommandResponseModelListAsync();
+            startIotControlCommandResponseViewModel.StartIotControlCommandResponseModelList = await startIotControlCommandResponseViewHelper.PostStartIotControlCommandResponseModelListAsync(
+                cobotSwitchCheckDefault: cobotSwitchCheckDefault,
+                controlBoxSwitchCheckDefault: controlBoxSwitchCheckDefault,
+                payloadSwitchCheckDefault: payloadSwitchCheckDefault,
+                baseSwitchCheckDefault: baseSwitchCheckDefault,
+                elbowSwitchCheckDefault: elbowSwitchCheckDefault,
+                shoulderSwitchCheckDefault: shoulderSwitchCheckDefault,
+                wrist1SwitchCheckDefault: wrist1SwitchCheckDefault,
+                wrist2SwitchCheckDefault: wrist2SwitchCheckDefault,
+                wrist3SwitchCheckDefault: wrist3SwitchCheckDefault,
+                toolSwitchCheckDefault: toolSwitchCheckDefault);
             return View(startIotControlCommandResponseViewModel);
         }
         public async Task<IActionResult> StopIotControlCommandResponseAsync()

@@ -33,21 +33,59 @@ namespace CobotWebApp.Helper
                 };
                 return breadCrumbPartialViewModelList;
             }
-            public async Task<List<CobotIotCommandFunctionModel.ResponseModel.StartIotControlCommandResponseModel>?> PostStartIotControlCommandResponseModelListAsync()
+            public async Task<List<CobotIotCommandFunctionModel.ResponseModel.StartIotControlCommandResponseModel>?> PostStartIotControlCommandResponseModelListAsync(
+                bool cobotSwitchCheckDefault,
+                bool controlBoxSwitchCheckDefault,
+                bool payloadSwitchCheckDefault,
+                bool baseSwitchCheckDefault,
+                bool elbowSwitchCheckDefault,
+                bool shoulderSwitchCheckDefault,
+                bool wrist1SwitchCheckDefault,
+                bool wrist2SwitchCheckDefault,
+                bool wrist3SwitchCheckDefault,
+                bool toolSwitchCheckDefault)
             {
-                List<CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel> startIotControlCommandRequestModelList =
-                    new List<CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel> {
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Cobot", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "ControlBox", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Payload", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Base", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Elbow", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Shoulder", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Tool", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist1", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist2", responseTimeout: 20),
-                        new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist3", responseTimeout: 20),
-                    };
+                List<CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel> startIotControlCommandRequestModelList = new List<CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel>();
+                if (cobotSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Cobot", responseTimeout: 20));
+                }
+                if (controlBoxSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "ControlBox", responseTimeout: 20));
+                }
+                if (payloadSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Payload", responseTimeout: 20));
+                }
+                if (baseSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Base", responseTimeout: 20));
+                }
+                if (elbowSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Elbow", responseTimeout: 20));
+                }
+                if (shoulderSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Shoulder", responseTimeout: 20));
+                }
+                if (wrist1SwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist1", responseTimeout: 20));
+                }
+                if (wrist2SwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist2", responseTimeout: 20));
+                }
+                if (wrist3SwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Wrist3", responseTimeout: 20));
+                }
+                if (toolSwitchCheckDefault)
+                {
+                    startIotControlCommandRequestModelList.Add(new CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel(deviceId: "Tool", responseTimeout: 20));
+                }
                 List<CobotIotCommandFunctionModel.ResponseModel.StartIotControlCommandResponseModel> startIotControlCommandResponseModelList = new List<CobotIotCommandFunctionModel.ResponseModel.StartIotControlCommandResponseModel>();
                 foreach (CobotIotCommandFunctionModel.RequestModel.StartIotControlCommandRequestModel startIotControlCommandRequestModel in startIotControlCommandRequestModelList)
                 {

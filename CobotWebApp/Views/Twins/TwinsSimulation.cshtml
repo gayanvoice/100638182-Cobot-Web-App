@@ -22,8 +22,18 @@
                     </span>
                </div>
             </div>
-            <div id="myDiv" style="width:100%;height:100%"></div>
-            <button type="button" class="button" id="this_button">Click here for update</button>
+            <div class="py-3">
+                <div class="pe-2">
+                    <span class="h3">Elbow Simulation</span>
+                </div>
+                <div id="elbowGraphDiv" style="width:100%;height:650px"></div>
+            </div>
+            <div class="py-3">
+                <div class="pe-2">
+                    <span class="h3">Tool Simulation</span>
+                </div>
+                <div id="toolGraphDiv" style="width:100%;height:650px"></div>
+            </div>
             <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Twins" asp-action="Dashboard">Back</a>
         </div>
     </main>
@@ -60,71 +70,6 @@
 @section Scripts{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script>
-        var elbow = {
-            x: [-0.12773289373018232],
-            y: [-0.13084479877284494],
-            z: [0.7776633460216864],
-            mode: 'markers',
-            marker: {
-                size: 12,
-                line: {
-                    color: 'rgba(217, 217, 217, 0.14)',
-                    width: 0.5
-                },
-                opacity: 0.8
-            },
-            type: 'scatter3d'
-        };
-
-        var tool = {
-            x: [-0.5417163925384921],
-            y: [-0.33277762302738645],
-            z: [1.3204977997160774],
-            mode: 'markers',
-            marker: {
-                size: 12,
-                line: {
-                    color: 'rgba(217, 217, 217, 0.14)',
-                    width: 0.5
-                },
-                opacity: 0.8
-            },
-            type: 'scatter3d'
-        };
-
-        var data = [elbow, tool];
-        var layout = {
-            margin: {
-                l: 0,
-                r: 0,
-                b: 0,
-                t: 0
-            },
-            xaxis: {
-                title: "X",
-            },
-            yaxis: {
-                title: "Y"
-            },
-            zaxis: {
-                title: "Z"
-            }
-        };
-        Plotly.newPlot('myDiv', data, layout);
-
-        $("#this_button").click(function () {
-            console.log("clicked");
-            var update = {
-                x: [[1, 2, 3, 4, 5]],
-                y: [[1, 2, 3, 4, 5]],
-                z: [[1, 2, 3, 4, 5]],
-                size: [[12, 13, 14, 15, 16]],
-                'marker.color': [["#001", "#005", "#0f0", "#f00", "#00f"]],
-                text: "size"
-            }
-
-            Plotly.restyle('myDiv', update, [0, 1, 2, 3, 4]);
-        });
-    </script>
+    <script src="/js/signalr/dist/browser/signalr.js"></script>
+    <script src="/js/twins-simulation-task.js"></script>
 }

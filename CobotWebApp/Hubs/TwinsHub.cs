@@ -217,5 +217,29 @@ namespace CobotWebApp.Hubs
 
             await Clients.All.SendAsync("TwinsStatusResponse", System.Text.Json.JsonSerializer.Serialize(twinsStatusModel));
         }
+        public async Task TwinsSimulationTask()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Task<ElbowTwinHubModel?> elbowTwinHubModelTask = TwinsHubHelper.GetElbowTwinHubModel();
+            Task<ToolTwinHubModel?> toolTwinHubModelTask = TwinsHubHelper.GetToolTwinHubModel();
+
+            await Task.WhenAll(
+                elbowTwinHubModelTask,
+                toolTwinHubModelTask);
+
+            ElbowTwinHubModel? elbowTwinHubModel = elbowTwinHubModelTask.Result;
+            ToolTwinHubModel? toolTwinHubModel = toolTwinHubModelTask.Result;
+
+            stopwatch.Stop();
+            double duration = stopwatch.Elapsed.TotalMilliseconds;
+            TwinsSimulationModel twinsSimulationModel = TwinsSimulationModel.GetTwinSimulationModel(
+                duration: duration,
+                elbowTwinHubModel: elbowTwinHubModel,
+                toolTwinHubModel: toolTwinHubModel
+                );
+
+            await Clients.All.SendAsync("TwinsSimulationResponse", System.Text.Json.JsonSerializer.Serialize(twinsSimulationModel));
+        }
     }
 }

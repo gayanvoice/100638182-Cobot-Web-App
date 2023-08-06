@@ -112,51 +112,51 @@ function invokeTwinsTelemetryTask() {
     twinsTelemetrySpinner.style.display = 'block';
     twinsHubConnection.invoke("TwinsTelemetryTask").catch(function (err) {
         console.log(err.toString());
-        cobotElapsedTimeDiv.innerHTML = "Error";
+        cobotElapsedTimeDiv.innerHTML = "Not Syncing";
 
-        controlBoxVoltageDiv.innerHTML = "Error";
+        controlBoxVoltageDiv.innerHTML = "Not Syncing";
 
-        payloadCogXDiv.innerHTML = "Error";
-        payloadCogYDiv.innerHTML = "Error";
-        payloadCogZDiv.innerHTML = "Error";
-        payloadMassDiv.innerHTML = "Error";
+        payloadCogXDiv.innerHTML = "Not Syncing";
+        payloadCogYDiv.innerHTML = "Not Syncing";
+        payloadCogZDiv.innerHTML = "Not Syncing";
+        payloadMassDiv.innerHTML = "Not Syncing";
 
-        basePositionDiv.innerHTML = "Error";
-        baseTemperatureDiv.innerHTML = "Error";
-        baseVoltageDiv.innerHTML = "Error";
+        basePositionDiv.innerHTML = "Not Syncing";
+        baseTemperatureDiv.innerHTML = "Not Syncing";
+        baseVoltageDiv.innerHTML = "Not Syncing";
 
-        shoulderPositionDiv.innerHTML = "Error";
-        shoulderPositionDiv.innerHTML = "Error";
-        shoulderTemperatureDiv.innerHTML = "Error";
-        shoulderVoltageDiv.innerHTML = "Error";
+        shoulderPositionDiv.innerHTML = "Not Syncing";
+        shoulderPositionDiv.innerHTML = "Not Syncing";
+        shoulderTemperatureDiv.innerHTML = "Not Syncing";
+        shoulderVoltageDiv.innerHTML = "Not Syncing";
 
-        elbowPositionDiv.innerHTML = "Error";
-        elbowTemperatureDiv.innerHTML = "Error";
-        elbowVoltageDiv.innerHTML = "Error";
-        elbowXDiv.innerHTML = "Error";
-        elbowYDiv.innerHTML = "Error";
-        elbowZDiv.innerHTML = "Error";
+        elbowPositionDiv.innerHTML = "Not Syncing";
+        elbowTemperatureDiv.innerHTML = "Not Syncing";
+        elbowVoltageDiv.innerHTML = "Not Syncing";
+        elbowXDiv.innerHTML = "Not Syncing";
+        elbowYDiv.innerHTML = "Not Syncing";
+        elbowZDiv.innerHTML = "Not Syncing";
 
-        wrist1PositionDiv.innerHTML = "Error";
-        wrist1TemperatureDiv.innerHTML = "Error";
-        wrist1VoltageDiv.innerHTML = "Error";
+        wrist1PositionDiv.innerHTML = "Not Syncing";
+        wrist1TemperatureDiv.innerHTML = "Not Syncing";
+        wrist1VoltageDiv.innerHTML = "Not Syncing";
 
-        wrist2PositionDiv.innerHTML = "Error";
-        wrist2TemperatureDiv.innerHTML = "Error";
-        wrist2VoltageDiv.innerHTML = "Error";
+        wrist2PositionDiv.innerHTML = "Not Syncing";
+        wrist2TemperatureDiv.innerHTML = "Not Syncing";
+        wrist2VoltageDiv.innerHTML = "Not Syncing";
 
-        wrist3PositionDiv.innerHTML = "Error";
-        wrist3TemperatureDiv.innerHTML = "Error";
-        wrist3VoltageDiv.innerHTML = "Error";
+        wrist3PositionDiv.innerHTML = "Not Syncing";
+        wrist3TemperatureDiv.innerHTML = "Not Syncing";
+        wrist3VoltageDiv.innerHTML = "Not Syncing";
 
-        toolTemperatureDiv.innerHTML = "Error";
-        toolVoltageDiv.innerHTML = "Error";
-        toolRxDiv.innerHTML = "Error";
-        toolRyDiv.innerHTML = "Error";
-        toolRzDiv.innerHTML = "Error";
-        toolXDiv.innerHTML = "Error";
-        toolYDiv.innerHTML = "Error";
-        toolZDiv.innerHTML = "Error";
+        toolTemperatureDiv.innerHTML = "Not Syncing";
+        toolVoltageDiv.innerHTML = "Not Syncing";
+        toolRxDiv.innerHTML = "Not Syncing";
+        toolRyDiv.innerHTML = "Not Syncing";
+        toolRzDiv.innerHTML = "Not Syncing";
+        toolXDiv.innerHTML = "Not Syncing";
+        toolYDiv.innerHTML = "Not Syncing";
+        toolZDiv.innerHTML = "Not Syncing";
 
         reject(err.toString());
     });
