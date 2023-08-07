@@ -1,14 +1,7 @@
 ﻿@model CobotWebApp.Models.View.TimeseriesViewModel.ElbowViewModel;
 
 <div class="container py-3">
-    <header>
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-            <div class="d-flex align-items-center link-body-emphasise">
-                <i class="bi bi-robot me-2" style="font-size: 2em;"></i> <span class="fs-4">Cobot Digital Twin</span>
-            </div>
-            <partial name="_LoginPartial" />
-        </div>
-    </header>
+    <partial name="_HeaderPartial" />
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
         <div class="h2 pb-4 pt-2 d-flex flex-row">
