@@ -1,6 +1,6 @@
 ﻿@model CobotWebApp.Models.View.AdtViewModel.DashboardViewModel;
 
-<div class="container py-3">
+<div class="container">
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
             <div class="d-flex align-items-center link-body-emphasise">
@@ -11,7 +11,11 @@
     </header>
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
-        
+        <div class="h2 pb-4 pt-2 d-flex flex-row" id="twinsDashboarditle">
+            <div class="pe-2">
+                <span>Azure ADT Dashboard</span>
+            </div>
+        </div>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
@@ -65,45 +69,7 @@
             </div>
         </div>
     </main>
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md text-center">
-                <img class="mb-2" src="/img//uod_logo.jpg" alt="" width="128">
-                <small class="d-block mb-3 text-body-secondary">University of Derby © 2023</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Projects</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-Web-App</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-Client-App</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-IoT-Command-Function-App</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-TwinToTwin-EventGrid-Function-App</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-Ingestion-Function-App</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">100638182-Cobot-ADT-Initialize-Function-App</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Supervisors</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Maqbool Hussain</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Wajahat Ali Khan</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Ben Anderson @@ AddQual</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Musthafa @@ AddQual</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-  
+    <partial name="_FooterPartial" />  
 </div>
 
 @section CSS{

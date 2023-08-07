@@ -1,18 +1,36 @@
-﻿@using CobotWebApp.Singleton;
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-@inject IBuildDependency buildDependency
+﻿<footer class="pt-4 border-top">
+    <div class="row row-cols-1 mb-3">
+        <div class="col-4 text-center">
+            <div class="mb-2">
+                <img src="/img//uod_logo.jpg" alt="" width="128">
+            </div>
+            <div class="mb-3">
+                <img src="/img//addqual.PNG" alt="" width="256">
+            </div>
 
-<div class="my-3 text-body-secondary text-center">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <span>100638182 @@ University of Derby © 2023.</span>
-        <span>Build: @buildDependency.GetBuildNumber()</span>
-      }
-    else
-    {
-        <span>100638182 @@ University of Derby © 2023.</span>
-        <span>Build: @buildDependency.GetBuildNumber()</span>
-    }
-</div>
+            <small class="d-block mb-3 text-body-secondary">Created by 100638182 @@ University of Derby</small>
+        </div>
+        <div class="col-3">
+            <h5>Supervisors</h5>
+            <ul class="list-unstyled text-small">
+                <li class="link-secondary text-decoration-none"><small>Dr. Maqbool Hussain</small></a></li>
+                <li class="link-secondary text-decoration-none"><small>Dr. Wajahat Ali Khan</small></a></li>
+                <li class="link-secondary text-decoration-none"><small>Ben Anderson @@ AddQual</small></a></li>
+                <li class="link-secondary text-decoration-none"><small>Dr. Sadiq Hassan @@ AddQual</small></a></li>
+                <li class="link-secondary text-decoration-none"><small>Mustafa Imran @@ AddQual</small></a></li>
+            </ul>
+        </div>
+        <div class="col-5">
+            <h5>Projects</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-Client-App"><small>[1] 100638182-Cobot-Client-App (Python)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-Web-App"><small>[2] 100638182-Cobot-Web-App (C#)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-ADT-NoSQL-EventGrid-Function-App"><small>[3] 100638182-Cobot-ADT-NoSQL-EventGrid-Function-App (C#)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-ADT-TwinOfTwin-EventGrid-Function-App"><small>[4] 100638182-Cobot-ADT-TwinOfTwin-EventGrid-Function-App (C#)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-ADT-Ingestion-Function-App"><small>[5] 100638182-Cobot-ADT-Ingestion-Function-App (C#)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-ADT-Initialize-Function-App"><small>[6] 100638182-Cobot-ADT-Initialize-Function-App (C#)</small></a></li>
+                <li><a class="link-secondary text-decoration-none" href="https://github.com/gayanvoice/100638182-Cobot-IoT-Command-Function-App"><small>[7] 100638182-Cobot-IoT-Command-Function-App (C#)</small></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

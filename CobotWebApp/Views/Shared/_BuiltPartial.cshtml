@@ -1,0 +1,18 @@
+﻿@using CobotWebApp.Singleton;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject IBuildDependency buildDependency
+
+<div class="mb-3 text-body-secondary text-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <span>100638182 @@ University of Derby.</span>
+        <span>Built: @buildDependency.GetBuildNumber()</span>
+      }
+    else
+    {
+        <span>100638182 @@ University of Derby.</span>
+        <span>Built: @buildDependency.GetBuildNumber()</span>
+    }
+</div>

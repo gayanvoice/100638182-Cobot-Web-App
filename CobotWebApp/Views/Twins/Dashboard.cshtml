@@ -1,6 +1,6 @@
 ﻿@model CobotWebApp.Models.View.TwinsViewModel.DashboardViewModel;
 
-<div class="container py-3">
+<div class="container">
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
             <div class="d-flex align-items-center link-body-emphasise">
@@ -11,32 +11,21 @@
     </header>
     <main>
         @await Html.PartialAsync("_BreadCrumbPartial", Model.BreadCrumbPartialViewModelList)
-
+        <div class="h2 pb-4 pt-2 d-flex flex-row" id="twinsDashboarditle">
+            <div class="pe-2">
+                <span>Twins Dashboard</span>
+            </div>
+        </div>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card rounded-3 shadow-sm">
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">Start IOT</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-iot-command-function-app</h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Open
                         </button>
-
-
                     </div>
                 </div>
             </div>
@@ -46,19 +35,6 @@
                         <h4 class="my-0 fw-normal">Stop IOT</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-iot-command-function-app</h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Twins" asp-action="StopIotControlCommandResponse">Execute</a>
                     </div>
                 </div>
@@ -69,19 +45,6 @@
                         <h4 class="my-0 fw-normal">Twins Telemetry</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-adt-initialize-function-app & SignalR </h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Twins" asp-action="TwinsTelemetry">Open</a>
                     </div>
                 </div>
@@ -92,19 +55,6 @@
                         <h4 class="my-0 fw-normal">Twins Simulation</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-adt-initialize-function-app & SignalR </h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Twins" asp-action="TwinsSimulation">Open</a>
                     </div>
                 </div>
@@ -115,19 +65,6 @@
                         <h4 class="my-0 fw-normal">Twin Of Twin</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-adt-initialize-function-app & SignalR </h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Twins" asp-action="TwinOfTwin">Open</a>
                     </div>
                 </div>
@@ -138,26 +75,13 @@
                         <h4 class="my-0 fw-normal">Twins Status</h4>
                     </div>
                     <div class="card-body">
-                        <div class="mt-3 mb-4 ">
-                            <h5 class="fw-normal text-muted mb-3">100638182-cobot-adt-initialize-function-app & SignalR </h5>
-                            <div class="d-flex gap-3 justify-content-center lead fw-normal">
-                                <a class="icon-link" href="#">
-                                    App
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                                <a class="icon-link" href="#">
-                                    GitHub
-                                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                                </a>
-                            </div>
-                        </div>
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Twins" asp-action="TwinsStatus">Open</a>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
+    <partial name="_FooterPartial" />
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
