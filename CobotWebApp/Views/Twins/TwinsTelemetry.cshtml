@@ -7,6 +7,519 @@
         <div class="container" id="icon-grid">
             <div class="h2 py-3 d-flex flex-row" id="twinsTelemetryTitle">
                 <div class="pe-2">
+                    <span>Twins Telemetry</span> (<span id="twinsTelemetryElapsedSpan">57.586</span><small class="text-body-secondary fw-light">/ms</small>)
+                </div>
+                <div>
+                    <span class="spinner-border text-primary" id="twinsTelemetrySpinner" style="display: block" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">UR Cobot</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQ">[4.7124,-1.9199000000000002,2.6180000000000003, -2.2689000000000004,4.712399999999999,0.0]</div>
+                        <div class="h6">target_q</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[0.0,0.0,0.0,0.0,0.0,0.0]</div>
+                        <div class="h6">target_qd</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[1.518456112208083E-16,-0.7274540066719055,-3.545098066329956, -0.42007091641426086,-0.0009585336083546281,-1.156252622536158E-07]</div>
+                        <div class="h6">target_current</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[-2.363925350201378E-15,-8.961823078813417,-39.196985373995126, -4.545749041010013,-0.010258514678925603,-9.973130880720228E-07]</div>
+                        <div class="h6">target_moment</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[-0.4587138593196869,-1.1210087537765503,-3.4236958026885986, -0.48272889852523804,0.07900214940309525,-0.08345578610897064]</div>
+                        <div class="h6">actual_current</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[4.712403297424316,-1.9198667011656703,2.6179614702807825, -2.268914361993307,4.712335586547852,-1.794496645146637E-05]</div>
+                        <div class="h6">actual_q</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[0.0,0.0,0.0,0.0,0.0,0.0]</div>
+                        <div class="h6">actual_qd</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[2.006660359668146E-16,-0.7274985313415527,-3.544936180114746, -0.42005425691604614,-0.0009720807429403067,6.429646504102493E-08]</div>
+                        <div class="h6">joint_control_output</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[-2.2864464469114303,2.556594553648362,-4.208190302557489, -0.0077500205928757206,0.014257895078464998,-0.09657987716547754]</div>
+                        <div class="h6">actual_tcp_force</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[24.1875,24.75,27.0, 30.3125,32.375,32.75]</div>
+                        <div class="h6">joint_temperatures</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[253,253,253,253,253,253]</div>
+                        <div class="h6">joint_mode</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[0.038307227194309235,0.2298433631658554,-9.749189376831055]</div>
+                        <div class="h6">actual_tool_accelerometer</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">[47.713924407958984,47.68526077270508,47.75692367553711, 47.78559112548828,47.7282600402832,47.69959259033203]</div>
+                        <div class="h6">actual_joint_voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-4 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">0.0</div>
+                        <div class="h6">speed_scaling</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">0.0</div>
+                        <div class="h6">actual_momentum</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">47.74509811401367</div>
+                        <div class="h6">actual_main_voltage</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">47.80152130126953</div>
+                        <div class="h6">actual_robot_voltage</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">0.6277561187744141</div>
+                        <div class="h6">actual_robot_current</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">1</div>
+                        <div class="h6">runtime_state</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">7</div>
+                        <div class="h6">robot_mode</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">1</div>
+                        <div class="h6">safety_mode</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">3</div>
+                        <div class="h6">analog_io_types</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">0.0</div>
+                        <div class="h6">io_current</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">253</div>
+                        <div class="h6">tool_mode</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">24</div>
+                        <div class="h6">tool_output_voltage</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="cobotTargetQd">0.04853147268295288</div>
+                        <div class="h6">tool_output_current</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Robotiq Gripper</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-4 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">1</div>
+                        <div class="h6">act</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">1</div>
+                        <div class="h6">gto</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">50</div>
+                        <div class="h6">for</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">50</div>
+                        <div class="h6">spe</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">227</div>
+                        <div class="h6">pos</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">3</div>
+                        <div class="h6">sta</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">225</div>
+                        <div class="h6">pre</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">3</div>
+                        <div class="h6">obj</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="controlBoxVoltageDiv">0</div>
+                        <div class="h6">flt</div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Payload</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="payloadCogXDiv">null</div>
+                        <div class="h6">CogX</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="payloadCogYDiv">null</div>
+                        <div class="h6">CogY</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="payloadCogZDiv">null</div>
+                        <div class="h6">CogZ</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="payloadMassDiv">null</div>
+                        <div class="h6">Mass</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Base</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="basePositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="baseTemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="baseVoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Shoulder</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="shoulderPositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="shoulderTemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="shoulderVoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Elbow</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowPositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowTemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowVoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowXDiv">null</div>
+                        <div class="h6">X</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowYDiv">null</div>
+                        <div class="h6">Y</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="elbowZDiv">null</div>
+                        <div class="h6">Z</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Wrist1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist1PositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist1TemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist1VoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Wrist2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist2PositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist2TemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist2VoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Wrist3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist3PositionDiv">null</div>
+                        <div class="h6">Position</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist3TemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="wrist3VoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 g-4 py-3 border-bottom">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h3 mb-0">Tool</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 g-4 py-3">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolTemperatureDiv">null</div>
+                        <div class="h6">Temperature</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolVoltageDiv">null</div>
+                        <div class="h6">Voltage</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolRxDiv">null</div>
+                        <div class="h6">Rx</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolRyDiv">null</div>
+                        <div class="h6">Ry</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolRzDiv">null</div>
+                        <div class="h6">Rz</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolXDiv">null</div>
+                        <div class="h6">X</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolYDiv">null</div>
+                        <div class="h6">Y</div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="h4 mb-0" id="toolZDiv">null</div>
+                        <div class="h6">Z</div>
+                    </div>
+                </div>
+            </div>*@
+            <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Twins" asp-action="Dashboard">Back</a>
+        </div>
+@*        <div class="container" id="icon-grid">
+            <div class="h2 py-3 d-flex flex-row" id="twinsTelemetryTitle">
+                <div class="pe-2">
                     <span>Twins Telemetry</span> (<span id="twinsTelemetryElapsedSpan">Loading</span><small class="text-body-secondary fw-light">/ms</small>)
                 </div>
                 <div>
@@ -316,7 +829,7 @@
                 </div>
             </div>
             <a class="w-100 btn btn-lg btn-primary mt-3" asp-controller="Twins" asp-action="Dashboard">Back</a>
-        </div>
+        </div>*@
     </main>
 </div>
 @section CSS{
@@ -349,6 +862,6 @@
     </svg>
 }
 @section Scripts{
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="/js/twins-telemetry-task.js"></script>
+@*    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="/js/twins-telemetry-task.js"></script>*@
 }

@@ -11,11 +11,11 @@
         </div>
         <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
             <div class="col">
-                <h4 class="my-0 fw-normal">Main Controls [2]</h4>
+                <h4 class="my-0 fw-normal">Main Controls [3]</h4>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
-            <div class="col">
+           @* <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">[1] Enable Control Command</h4>
@@ -34,11 +34,11 @@
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="DisableControlCommandResponse">Execute</a>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[3] Power On Control Command</h4>
+                        <h4 class="my-0 fw-normal">[1] Power On Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="PowerOnControlCommandResponse">Execute</a>
@@ -48,61 +48,34 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[4] Power Off Control Command</h4>
+                        <h4 class="my-0 fw-normal">[2] Power Off Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="PowerOffControlCommandResponse">Execute</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
-            <div class="col">
-                <h4 class="my-0 fw-normal">Move Controls [3]</h4>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[5] MoveJ Control Command</h4>
+                        <h4 class="my-0 fw-normal">[3] MoveJ Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Iot" asp-action="MoveJControlCommandRequest">Open</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[6] MoveL Control Command</h4>
-                    </div>
-                    <div class="card-body">
-                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Iot" asp-action="MoveLControlCommandRequest">Open</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[7] MoveP Control Command</h4>
-                    </div>
-                    <div class="card-body">
-                        <a class="w-100 btn btn-lg btn-primary" asp-controller="Iot" asp-action="MovePControlCommandRequest">Open</a>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
             <div class="col">
-                <h4 class="my-0 fw-normal">Movement Controls [2]</h4>
+                <h4 class="my-0 fw-normal">Safety Controls [4]</h4>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[8] Play Control Command</h4>
+                        <h4 class="my-0 fw-normal">[4] Play Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="PlayControlCommandResponse">Execute</a>
@@ -112,24 +85,17 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[9] Pause Control Command</h4>
+                        <h4 class="my-0 fw-normal">[5] Pause Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="PauseControlCommandResponse">Execute</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
-            <div class="col">
-                <h4 class="my-0 fw-normal">Safety Controls [2]</h4>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[10] Close Safety Popup Control Command</h4>
+                        <h4 class="my-0 fw-normal">[6] Close Safety Popup Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="CloseSafetyPopupControlCommandResponse">Execute</a>
@@ -139,7 +105,7 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[11] Unlock Protective Stop Control Command</h4>
+                        <h4 class="my-0 fw-normal">[7] Unlock Protective Stop Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="UnlockProtectiveStopControlCommandResponse">Execute</a>
@@ -156,7 +122,7 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[12] Open Popup Control Command</h4>
+                        <h4 class="my-0 fw-normal">[8] Open Popup Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-primary" asp-controller="Iot" asp-action="OpenPopupControlCommandRequest">Open</a>
@@ -166,7 +132,7 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[13] Close Popup Control Command</h4>
+                        <h4 class="my-0 fw-normal">[9] Close Popup Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="ClosePopupControlCommandResponse">Execute</a>
@@ -176,7 +142,7 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[14] Start Free Drive Control Command</h4>
+                        <h4 class="my-0 fw-normal">[10] Start Free Drive Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="StartFreeDriveControlCommandResponse">Execute</a>
@@ -186,7 +152,7 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">[15] Stop Free Drive Control Command</h4>
+                        <h4 class="my-0 fw-normal">[11] Stop Free Drive Control Command</h4>
                     </div>
                     <div class="card-body">
                         <a class="w-100 btn btn-lg btn-danger" asp-controller="Iot" asp-action="StopFreeDriveControlCommandResponse">Execute</a>

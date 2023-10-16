@@ -5,7 +5,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "SQL_CONNECTION_STRING": "Server=tcp:100638182-sql-server.database.windows.net,1433;Initial Catalog=100638182-sql-database;Persist Security Info=False;User ID=sqladmin;Password=Vasenajay1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+        "SQL_CONNECTION_STRING": "Server=tcp:addqual-sql-database-server.database.windows.net,1433;Initial Catalog=addqual-sql-database;Persist Security Info=False;User ID=addqualadmin;Password=AddQual1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7271;http://localhost:5280"
